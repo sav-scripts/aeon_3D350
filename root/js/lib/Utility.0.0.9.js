@@ -4,6 +4,7 @@
     var _p = window.Utility = {};
 
     var _hash = window.location.hash.replace("#", "");
+
     Utility.onHashChange = function(cb)
     {
 
@@ -27,7 +28,7 @@
             _hash = string.replace("#", "");
             cb.apply(null, [_hash]);
         }
-    }
+    };
 
     Utility.getHash = function(){ return _hash; };
     Utility.setHash = function(targetHash)

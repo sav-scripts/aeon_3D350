@@ -11,12 +11,60 @@ body{
     width: 100%;
     height: 100%;
 }
-#index_block{
+#logo{
+    position: fixed;
+    z-index: 100;
+    top:20px;
+    left:20px;
+    background: url(../images/logo.png);
+    width: 158px;
+    height: 49px;
+}
+.scroll_block{
     position: relative;
     width: 100%;
     height: 100%;
+    z-index: 10;
 }
-#index_block > .left_block_0{
+
+/** right menu **/
+#right_menu{
+    position: fixed;
+    right:4px;
+    top:50%;
+    width: 120px;
+    height: 30px;
+    z-index: 100;
+    margin-top: -150px;
+}
+#right_menu > .menu_button{
+    position: relative;
+    float: left;
+    width: 100%;
+    height:28px;
+    text-align: center;
+    line-height: 28px;
+    color:#ccc;
+    background:#333;
+    border-top: #555 1px solid;
+    border-bottom: #111 1px solid;
+    cursor: pointer;
+}
+#right_menu > .menu_button:hover{
+    color:#fff;
+}
+#right_menu > .menu_button:active{
+    border-top: #555 2px solid;
+    border-bottom: #111 0 solid;
+}
+
+/** index **/
+#index_fix_block{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+#index_fix_block > .left_block_0{
     position: absolute;
     width:50%;
     height: 100%;
@@ -26,7 +74,7 @@ body{
     bottom: 0;
     overflow: hidden;
 }
-#index_block > .left_block_1{
+#index_fix_block > .left_block_1{
     position: absolute;
     width:50%;
     height: 100%;
@@ -36,7 +84,7 @@ body{
     bottom: 0;
     overflow: hidden;
 }
-#index_block .right_block_0 {
+#index_fix_block .right_block_0 {
     position: absolute;
     width:50%;
     height: 100%;
@@ -47,7 +95,7 @@ body{
     top: 0;
     overflow: hidden;
 }
-#index_block .right_block_1 {
+#index_fix_block .right_block_1 {
     position: absolute;
     width:50%;
     height: 100%;
@@ -58,6 +106,65 @@ body{
     top:0;
     overflow: hidden;
 }
-#index_block img{
+#index_fix_block img{
     position: absolute;
 }
+#index_block{
+    /*background: rgba(255,0,0,.5);*/
+}
+#index_block > .index_text{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    width: 400px;
+    height:116px;
+    background: url(../images/index_text_0.png);
+    margin-left: -200px;
+    margin-top: -58px;
+}
+
+/** brand **/
+#brand_block{
+    background: rgba(255,255,0,.5);
+}
+
+/** atw **/
+#atw_block{
+    background: rgba(0,255,0,.5);
+}
+
+/** feature **/
+#feature_block{
+    background: rgba(0,0,255,.5);
+}
+
+/** spec **/
+#spec_block{
+    background: rgba(0,255,255,.5);
+}
+
+/** color **/
+#color_block{
+    background: rgba(255,0,255,.5);
+}
+
+/** watch **/
+#watch_block{
+    background: rgba(255,255,0,.5);
+}
+
+/** info **/
+#info_block{
+    background: rgba(0,255,0,.5);
+}
+
+
+/** sign **/
+#sign_block{
+    background: rgba(0,255,255,.5);
+}
+
+
+
+
+

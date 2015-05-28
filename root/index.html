@@ -24,18 +24,36 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/ScrollToPlugin.min.js"></script>
+
 
     <script src="js/lib/Utility.0.0.9.js"></script>
 
 
     <script src="js/lib/MathHelper.1.0.0.js"></script>
     <script src="js/Index.js"></script>
+    <script src="js/UI.js"></script>
     <script src="js/Main.js"></script>
 
 </head>
 <body onload="Main.init();">
 
-    <div id="index_block">
+    <div id="logo"></div>
+
+    <div id="right_menu">
+        <div class="menu_button">首頁</div>
+        <div class="menu_button">品牌</div>
+        <div class="menu_button">ATW</div>
+        <div class="menu_button">特色</div>
+        <div class="menu_button">規格</div>
+        <div class="menu_button">顏色</div>
+        <div class="menu_button">360度欣賞</div>
+        <div class="menu_button">經銷商資訊</div>
+        <div class="menu_button">型錄下載</div>
+        <div class="menu_button">報名</div>
+    </div>
+
+    <div id="index_fix_block">
         <div class="left_block_0">
             <img src="images/index_left_0.jpg"/>
         </div>
@@ -48,6 +66,34 @@
         <div class="right_block_1">
             <img src="images/index_right_1.jpg"/>
         </div>
+    </div>
+    <div id="index_block" class="scroll_block">
+        Index
+        <div class="index_text"></div>
+    </div>
+    <div id="brand_block" class="scroll_block">
+        Brand
+    </div>
+    <div id="atw_block" class="scroll_block">
+        Around the World
+    </div>
+    <div id="feature_block" class="scroll_block">
+        Features
+    </div>
+    <div id="spec_block" class="scroll_block">
+        Specifications
+    </div>
+    <div id="color_block" class="scroll_block">
+        Color
+    </div>
+    <div id="watch_block" class="scroll_block">
+        Watch
+    </div>
+    <div id="info_block" class="scroll_block">
+        Info
+    </div>
+    <div id="sign_block" class="scroll_block">
+        Sign
     </div>
 
 </body>

@@ -9,7 +9,7 @@
 
     _p.init = function()
     {
-        $doms.container = $("#index_block");
+        $doms.container = $("#index_fix_block");
         $doms.leftBlock_0 = $doms.container.find("> .left_block_0");
         $doms.leftBlock_1 = $doms.container.find("> .left_block_1");
         $doms.rightBlock_0 = $doms.container.find("> .right_block_0");
