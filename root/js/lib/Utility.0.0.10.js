@@ -3,14 +3,15 @@
 
     var _p = window.Utility = {};
 
-    var _hash = window.location.hash.replace("#", "");
+    //var _hash = window.location.hash.replace("#", "");
 
     Utility.onHashChange = function(cb)
     {
 
         if ("onhashchange" in window) { // event supported?
-            window.onhashchange = function () {
-                hashChanged(window.location.hash);
+
+            window.onhashchange = function (event) {
+                hashChanged();
             }
         }
         else { // event not supported:
@@ -18,22 +19,38 @@
             window.setInterval(function () {
                 if (window.location.hash != storedHash) {
                     storedHash = window.location.hash;
-                    hashChanged(storedHash);
+                    hashChanged();
                 }
             }, 100);
         }
 
-        function hashChanged(string)
+        function hashChanged()
         {
-            _hash = string.replace("#", "");
-            cb.apply(null, [_hash]);
+            //console.log(document.documentElement.scrollTop);
+            cb.apply(null, [_p.getHash()]);
         }
+
+        //console.log("check");
+
+        /*
+        window.onpopstate = function(event)
+        {
+            event.preventDefault();
+            console.log("onpopstate: " + event);
+            cb.apply(null, [_p.getHash()]);
+        };
+        */
     };
 
-    Utility.getHash = function(){ return _hash; };
+    Utility.getHash = function()
+    {
+        return window.location.hash.replace("#", "");
+    };
     Utility.setHash = function(targetHash)
     {
+        //console.log(targetHash);
         window.location.hash = "#" + targetHash;
+        //history.pushState(null, null, "#" + targetHash);
     };
 
 

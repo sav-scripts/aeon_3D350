@@ -7,18 +7,7 @@
 
     <meta property="og:title" content="AEON 3D-350" />
     <meta property="og:type" content="activity" />
-    <meta property="og:caption" content="宏佳騰3D-350 即將在台登場！" />
-    <meta property="og:description" content="搶先看新車專屬配備，猜猜環遊世界騎士的下一站？還有機會獲得宏佳騰萬元購車金！" />
-    <meta property="og:image" content="https://aeon3d350.sp88.tw/misc/fb_share.jpg" />
-
-    <script>
-
-        if (window.location.protocol != "https:" && window.location.host != "test-aeon3d350.sp88.tw" && window.location.host != "local.savorks.com")
-            window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-
-    </script>
-
-
+    <meta property="og:caption" content="宏佳騰 AEON 3D-350" />
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
@@ -27,11 +16,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/ScrollToPlugin.min.js"></script>
 
 
-    <script src="js/lib/Utility.0.0.9.js"></script>
+    <script src="js/lib/Utility.0.0.10.js"></script>
+    <script src="js/lib/Helper.1.0.0.js"></script>
 
 
     <script src="js/lib/MathHelper.1.0.0.js"></script>
+    <script src="js/Sign.js"></script>
+    <script src="js/MotoColor.js"></script>
     <script src="js/Index.js"></script>
+    <script src="js/Feature.js"></script>
     <script src="js/UI.js"></script>
     <script src="js/Main.js"></script>
 
@@ -40,6 +33,7 @@
 
     <div id="logo"></div>
 
+    <!-- 右邊選單 -->
     <div id="right_menu">
         <div class="menu_button">首頁</div>
         <div class="menu_button">品牌</div>
@@ -47,12 +41,14 @@
         <div class="menu_button">特色</div>
         <div class="menu_button">規格</div>
         <div class="menu_button">顏色</div>
-        <div class="menu_button">360度欣賞</div>
+        <div class="menu_button" style="display: none;">360度欣賞</div>
         <div class="menu_button">經銷商資訊</div>
         <div class="menu_button">型錄下載</div>
+        <div class="menu_button">CF欣賞</div>
         <div class="menu_button">報名</div>
     </div>
 
+    <!-- 首頁 -->
     <div id="index_fix_block">
         <div class="left_block_0">
             <img src="images/index_left_0.jpg"/>
@@ -67,33 +63,150 @@
             <img src="images/index_right_1.jpg"/>
         </div>
     </div>
+
     <div id="index_block" class="scroll_block">
         Index
         <div class="index_text"></div>
     </div>
+
+    <!-- 品牌故事 -->
     <div id="brand_block" class="scroll_block">
         Brand
     </div>
+
+    <!-- ATW -->
     <div id="atw_block" class="scroll_block">
         Around the World
     </div>
+
+    <!-- 特色介紹 -->
     <div id="feature_block" class="scroll_block">
-        Features
+
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
+
+        <div class="feature_menu">
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
+        </div>
     </div>
+
+    <!-- 規格 -->
     <div id="spec_block" class="scroll_block">
         Specifications
     </div>
+
+    <!-- 顏色 -->
     <div id="color_block" class="scroll_block">
-        Color
+        <div class="moto_white">
+            <img src="images/moto_white.jpg"/>
+        </div>
+        <div class="moto_black">
+            <img src="images/moto_black.jpg"/>
+        </div>
     </div>
-    <div id="watch_block" class="scroll_block">
+
+    <!-- 360度欣賞 -->
+    <div id="watch_block" class="scroll_block" style="display: none;">
         Watch
     </div>
+
+    <!-- 經銷商資訊 -->
     <div id="info_block" class="scroll_block">
         Info
     </div>
+
+    <!-- CF欣賞 -->
+    <div id="cf_block" class="scroll_block">
+        CF
+    </div>
+
+    <!-- 報名 -->
     <div id="sign_block" class="scroll_block">
-        Sign
+        <div class="form_container">
+            
+            <div class="sign_title"></div>
+            <div class="sign_main_text"></div>
+            <div class="sign_btn_send"></div>
+
+            <input type="text" name="textfield" id="sign_field_name" class="input_style"  title=""/>
+            <input type="text" name="textfield" id="sign_field_pid" class="input_style"  title=""/>
+
+            <input type="text" name="textfield" id="sign_field_phone" class="input_style"  title=""/>
+            <input type="text" name="textfield" id="sign_field_email" class="input_style"  title=""/>
+
+            <select class="form_input_select" name="year" id="sign_field_year" title="">
+                <option>年</option>
+            </select>
+            <select class="form_input_select" name="month" id="sign_field_month" title="">
+                <option>月</option>
+            </select>
+            <select class="form_input_select" name="day" id="sign_field_day" title="">
+                <option>日</option>
+            </select>
+
+            <select class="form_input_select" name="day" id="sign_field_event" title="">
+                <option>--</option>
+                <option>6月 7日 桃園_聯合駕訓班</option>
+                <option>6月14日 新北_大新店駕訓班</option>
+                <option>6月19日 台北_大台北駕訓班</option>
+                <option>6月28日 新竹_亞東駕訓班</option>
+                <option>7月 5日 台中_高速駕訓班</option>
+                <option>7月12日 台南_咖啡博物館</option>
+                <option>7月19日 高雄_大發駕訓班</option>
+            </select>
+
+
+            <select class="form_input_select" name="day" id="sign_field_time" title="">
+                <option>--</option>
+                <option>PM 13:30~14:40</option>
+                <option>PM 14:40~15:50</option>
+                <option>PM 15:50~17:00</option>
+            </select>
+
+            <div id="sign_licence_yes" class="squaredFour">
+                <input type="checkbox" value="None" id="licence_yes" name="check" />
+                <label for="licence_yes"></label>
+            </div>
+
+            <div id="sign_licence_no" class="squaredFour">
+                <input type="checkbox" value="None" id="licence_no" name="check" />
+                <label for="licence_no"></label>
+            </div>
+
+            <div id="sign_friend_yes" class="squaredFour">
+                <input type="checkbox" value="None" id="friend_yes" name="check" />
+                <label for="friend_yes"></label>
+            </div>
+
+            <div id="sign_friend_no" class="squaredFour">
+                <input type="checkbox" value="None" id="friend_no" name="check" />
+                <label for="friend_no"></label>
+            </div>
+
+            <div class="sign_more_text"></div>
+
+            <select class="form_input_select" name="day" id="sign_field_type" title="">
+                <option>--</option>
+                <option>Elite300i</option>
+                <option>Elite250</option>
+                <option>OZ150</option>
+                <option>OZ125</option>
+                <option>MY</option>
+                <option>ES150</option>
+                <option>Coin125</option>
+            </select>
+
+
+        </div>
+        <div class="sign_shadow"></div>
+        <div class="sign_moto"></div>
     </div>
 
 </body>

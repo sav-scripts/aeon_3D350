@@ -18,7 +18,8 @@
         $doms.btnWatch = $($buttons[6]);
         $doms.btnInfo = $($buttons[7]);
         $doms.btnDownload = $($buttons[8]);
-        $doms.btnSign = $($buttons[9]);
+        $doms.btnCF = $($buttons[9]);
+        $doms.btnSign = $($buttons[10]);
 
         $doms.btnIndex.bind("click", function()
         {
@@ -62,6 +63,12 @@
 
         $doms.btnDownload.bind("click", function()
         {
+            window.open("misc/download.pdf", "_blank");
+        });
+
+        $doms.btnCF.bind("click", function()
+        {
+            Main.toBlock("/CF");
         });
 
         $doms.btnSign.bind("click", function()
