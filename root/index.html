@@ -9,6 +9,7 @@
     <meta property="og:type" content="activity" />
     <meta property="og:caption" content="宏佳騰 AEON 3D-350" />
 
+    <link rel="stylesheet" type="text/css" href="css/misc.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -16,8 +17,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/ScrollToPlugin.min.js"></script>
 
 
+    <script src="js/simple_preloading/SimplePreloading.0.0.7.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/simple_preloading/SimplePreloading.css" />
+
+
     <script src="js/lib/Utility.0.0.10.js"></script>
     <script src="js/lib/Helper.1.0.0.js"></script>
+    <script src="js/lib/FormHelper.0.0.4.js"></script>
 
 
     <script src="js/lib/MathHelper.1.0.0.js"></script>
@@ -71,12 +77,12 @@
 
     <!-- 品牌故事 -->
     <div id="brand_block" class="scroll_block">
-        Brand
+        <div class="brand"></div>
     </div>
 
     <!-- ATW -->
     <div id="atw_block" class="scroll_block">
-        Around the World
+        <div class="atw"></div>
     </div>
 
     <!-- 特色介紹 -->
@@ -87,8 +93,18 @@
         <div class="feature_block"></div>
         <div class="feature_block"></div>
         <div class="feature_block"></div>
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
+        <div class="feature_block"></div>
 
         <div class="feature_menu">
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
+            <div class="feature_btn"></div>
             <div class="feature_btn"></div>
             <div class="feature_btn"></div>
             <div class="feature_btn"></div>
@@ -138,7 +154,7 @@
             <input type="text" name="textfield" id="sign_field_name" class="input_style"  title=""/>
             <input type="text" name="textfield" id="sign_field_pid" class="input_style"  title=""/>
 
-            <input type="text" name="textfield" id="sign_field_phone" class="input_style"  title=""/>
+            <input type="text" name="textfield" id="sign_field_phone" class="input_style"  title="" maxlength="10"/>
             <input type="text" name="textfield" id="sign_field_email" class="input_style"  title=""/>
 
             <select class="form_input_select" name="year" id="sign_field_year" title="">
@@ -191,7 +207,6 @@
             </div>
 
             <div class="sign_more_text"></div>
-
             <select class="form_input_select" name="day" id="sign_field_type" title="">
                 <option>--</option>
                 <option>Elite300i</option>

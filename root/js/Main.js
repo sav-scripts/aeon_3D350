@@ -10,11 +10,20 @@
 
     var SCROLL_SPEED = 2000;
 
+    _p.isLocal = false;
+
     _p.init = function()
     {
         //TweenPlugin.activate([ScrollToPlugin]);
+        SimplePreloading.init();
 
-        RightMenu.init();
+        if(window.location.host == "local.savorks.com" || window.location.host == "socket.savorks.com")
+        {
+            _p.isLocal = true;
+        }
+
+
+            RightMenu.init();
         Index.init();
         Feature.init();
         MotoColor.init();

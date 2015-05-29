@@ -337,6 +337,7 @@ PatternSamples["number"] = /[0-9]/g;
 PatternSamples["nonNumber"] = /[^0-9]/g;
 PatternSamples["onlySpace"] = /^\s*$/;
 PatternSamples["localPhone"] = /^(0)\d{1,3}(-)\d{5,8}$/;
+PatternSamples["personId"] = /^[A-Z]{1}[1-2]{1}[0-9]{8}$/;
 
 }());
 

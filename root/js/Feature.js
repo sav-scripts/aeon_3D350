@@ -6,7 +6,7 @@
     var $doms = {};
 
     var _currentIndex = 0;
-    var NUM_FEATURES = 5;
+    var NUM_FEATURES = 10;
     var _isLocking = false;
     var _nextIndex = null;
 
@@ -18,7 +18,7 @@
         $doms.btnContainer = $doms.container.find("> .feature_menu");
 
         //$doms.btn_0 =
-        for(i=0;i<5;i++){ setBlock(i); }
+        for(i=0;i<NUM_FEATURES;i++){ setBlock(i); }
 
         function setBlock(index)
         {
