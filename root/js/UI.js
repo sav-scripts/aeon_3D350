@@ -7,7 +7,9 @@
 
     _p.init = function ()
     {
-        var $buttons = $("#right_menu").find(".menu_button");
+        $doms.container = $("#right_menu");
+
+        var $buttons = $doms.container.find(".menu_button");
 
         $doms.btnIndex = $($buttons[0]);
         $doms.btnBrand = $($buttons[1]);
@@ -17,9 +19,21 @@
         $doms.btnColor = $($buttons[5]);
         $doms.btnWatch = $($buttons[6]);
         $doms.btnInfo = $($buttons[7]);
-        $doms.btnDownload = $($buttons[8]);
-        $doms.btnCF = $($buttons[9]);
+        $doms.btnCF = $($buttons[8]);
+        $doms.btnDownload = $($buttons[9]);
         $doms.btnSign = $($buttons[10]);
+
+        TweenMax.set($doms.container,{opacity:.5});
+
+        $doms.container.bind("mouseover", function()
+        {
+            TweenMax.to($doms.container,.5,{opacity:1});
+        });
+
+        $doms.container.bind("mouseout", function()
+        {
+            TweenMax.to($doms.container,.5,{opacity:.5});
+        });
 
         $doms.btnIndex.bind("click", function()
         {
@@ -63,7 +77,8 @@
 
         $doms.btnDownload.bind("click", function()
         {
-            window.open("misc/download.pdf", "_blank");
+            //window.open("misc/download.pdf", "_blank");
+            ATWPop.playVideo();
         });
 
         $doms.btnCF.bind("click", function()

@@ -20,7 +20,7 @@
             height = width / contentRatio;
         }
 
-        return {width:width, height:height};
+        return {width:width, height:height, ratio:width/contentWidth};
     }
 
     _p.getSize_contain = function(containerWidth, containerHeight, contentWidth, contentHeight)
@@ -40,7 +40,7 @@
             width = height * contentRatio;
         }
 
-        return {width:width, height:height};
+        return {width:width, height:height, ratio:width/contentWidth};
     }
 
 }());
