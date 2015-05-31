@@ -21,7 +21,8 @@
         $doms.container.bind("mousemove", function(event)
         {
             var ratio = event.clientX / $(window).width();
-            var index = parseInt(ratio * 6);
+            var index = parseInt(ratio * 7);
+            index = index % 6;
 
             if(index != _currentIndex)
             {

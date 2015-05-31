@@ -110,7 +110,7 @@
         _player = new YT.Player('atw_video', {
             height: height,
             width: width,
-            videoId: Main.videoID.atw,
+            videoId: Main.videoID.cf,
             playerVars: { controls: 1, showinfo: 0, start:0, autoplay:1, autoHide:1 },
             events: {
                 'onReady': onPlayerReady,
