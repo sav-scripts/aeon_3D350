@@ -568,6 +568,14 @@ body > .scroll_btn{
 #watch_block{
     background: #000;
 }
+.watch_right_cover{
+    position: absolute;
+    right:0;
+    width:112px;
+    background:rgba(0,0,0,.5);
+    z-index: 5;
+    height: 100%;
+}
 .watch_title{
     position: absolute;
     top:50%;
