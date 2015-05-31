@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>AEON 3D-350</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=1200, user-scalable=no">
 
     <meta property="og:title" content="AEON 3D-350" />
     <meta property="og:type" content="activity" />
@@ -28,8 +28,9 @@
 
 
     <script src="js/lib/MathHelper.1.0.0.js"></script>
-    <script src="js/Popups.js"></script>
     <script src="js/Sign.js"></script>
+    <script src="js/ATW.js"></script>
+    <script src="js/CF.js"></script>
     <script src="js/Watch.js"></script>
     <script src="js/MotoColor.js"></script>
     <script src="js/Index.js"></script>
@@ -37,10 +38,30 @@
     <script src="js/UI.js"></script>
     <script src="js/Main.js"></script>
 
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62594056-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
 </head>
 <body onload="Main.init();">
 
+    <div class="on_loading">
+        <div class="on_loading_icon"></div>
+    </div>
+
     <div id="logo"></div>
+
+    <div class="top_flash"></div>
+    <div class="bottom_flash"></div>
 
     <!--
     <div class="scroll_btn">
@@ -61,7 +82,7 @@
             <div class="menu_button"></div>
             <div class="menu_button"></div>
             <div class="menu_button"></div>
-            <div class="menu_button"></div>
+            <div class="menu_button" style="display: none;"></div>
             <div class="menu_button"></div>
         </div>
     </div>
@@ -157,22 +178,146 @@
 
     <!-- 360度欣賞 -->
     <div id="watch_block" class="scroll_block" hash="/Watch">
+
+        <div class="watch_content"></div>
+        <div class="watch_content"></div>
+        <div class="watch_content"></div>
+        <div class="watch_content"></div>
+        <div class="watch_content"></div>
         <div class="watch_content"></div>
 
         <div class="watch_title">
             <img src="images/360_tit.png" width="100%" height="100%"/>
         </div>
+
     </div>
 
 
     <!-- 經銷商資訊 -->
     <div id="info_block" class="scroll_block" hash="/Info">
-        Info
+        <div class="info_image_1"></div>
+        <div class="info_image_2"></div>
+        <div class="info_table">
+
+            <!--<div class="info_1">xxxxxxxx</div><div class="info_2">xxxxxxxx</div><div class="info_3">xxxxxxxx</div>-->
+
+            <div class="info_city_block">基隆市</div>
+            <div class="info_1">騰達</div><div class="info_2">02-2434-8866</div><div class="info_3">基隆市安樂區安樂路１段179號</div>
+
+            <div class="info_city_block">臺北市</div>
+            <div class="info_1">大千</div><div class="info_2">02-2553-8781</div><div class="info_3">臺北市大同區承德路２段164號</div>
+            <div class="info_1">大橋</div><div class="info_2">02-2591-9636</div><div class="info_3">臺北市大同區延平北路３段128號</div>
+            <div class="info_1">優購愛馬</div><div class="info_2">02-8787-3555</div><div class="info_3">臺北市松山區八德路４段472號</div>
+            <div class="info_1">東園</div><div class="info_2">02-2303-5374</div><div class="info_3">臺北市萬華區東園街105號</div>
+            <div class="info_1">巨豐</div><div class="info_2">02-2632-1200</div><div class="info_3">臺北市內湖區康寧路３段16巷115號</div>
+            <div class="info_1">金益</div><div class="info_2">02-2931-9235</div><div class="info_3">臺北市文山區景興路11號</div>
+
+            <div class="info_city_block">新北市</div>
+            <div class="info_1">勳展</div><div class="info_2">02-2253-9974</div><div class="info_3">新北市板橋區莊敬路230號</div>
+            <div class="info_1">蘭帝</div><div class="info_2">02-2955-9208</div><div class="info_3">新北市板橋區實踐路82號</div>
+            <div class="info_1">永湛</div><div class="info_2">02-2694-8014</div><div class="info_3">新北市汐止區福德一路278號</div>
+            <div class="info_1">儀芳</div><div class="info_2">02-2647-0266</div><div class="info_3">新北市汐止區連興街144號</div>
+            <div class="info_1">國隆</div><div class="info_2">02-2915-7776</div><div class="info_3">新北市新店區北新路１段121號</div>
+
+            <div class="info_1">良達</div><div class="info_2">02-2215-3369</div><div class="info_3">新北市新店區安康路２段438號</div>
+            <div class="info_1">尚進</div><div class="info_2">02-2225-8572</div><div class="info_3">新北市中和區民享街86巷7號</div>
+            <div class="info_1">敏銳</div><div class="info_2">02-2267-6898</div><div class="info_3">新北市土城區中央路３段238之6號</div>
+            <div class="info_1">機車班長</div><div class="info_2">02-2973-6773</div><div class="info_3">新北市三重區重新路４段146號</div>
+            <div class="info_1">鑫宏</div><div class="info_2">02-2981-1141</div><div class="info_3">新北市三重區重陽路４段148號</div>
+
+            <div class="info_1">環台北</div><div class="info_2">02-2901-6198</div><div class="info_3">新北市新莊區三泰路17號</div>
+            <div class="info_1">益新</div><div class="info_2">02-2202-5903</div><div class="info_3">新北市新莊區民安西路224號</div>
+            <div class="info_1">泰霖</div><div class="info_2">02-2902-8307</div><div class="info_3">新北市泰山區明志路３段470號</div>
+
+            <div class="info_city_block">桃園市</div>
+            <div class="info_1">雅馬哈</div><div class="info_2">03-455-2373</div><div class="info_3">桃園市中壢區中華路１段171號</div>
+            <div class="info_1">桃霖</div><div class="info_2">03-438-5588</div><div class="info_3">桃園市中壢區中山東路２段166號</div>
+            <div class="info_1">榮益</div><div class="info_2">03-489-0798</div><div class="info_3">桃園市龍潭區中正路323號</div>
+            <div class="info_1">長盛</div><div class="info_2">03-472-3265</div><div class="info_3">桃園市楊梅區信義街40號</div>
+            <div class="info_1">世昌</div><div class="info_2">03-487-1719</div><div class="info_3">桃園市新屋區新屋里中華路219號</div>
+            <div class="info_1">六輪工房</div><div class="info_2">03-370-4567</div><div class="info_3">桃園市桃園區文中路271號</div>
+
+            <div class="info_city_block">新竹市</div>
+            <div class="info_1">力成</div><div class="info_2">03-542-8363</div><div class="info_3">新竹市東區中華路１段250號</div>
+            <div class="info_1">先鋒</div><div class="info_2">03-533-4322</div><div class="info_3">新竹市東區中華路２段297號</div>
+            <div class="info_1">成功</div><div class="info_2">03-668-2795</div><div class="info_3">新竹縣竹北市成功八路347號</div>
+            <div class="info_1">川焱</div><div class="info_2">03-552-0526</div><div class="info_3">新竹縣竹北市博愛街388之7號</div>
+
+            <div class="info_city_block">宜蘭縣</div>
+            <div class="info_1">騰翌</div><div class="info_2">03-932-5538</div><div class="info_3">宜蘭縣宜蘭市神農路２段89號</div>
+
+            <div class="info_city_block">花蓮縣</div>
+            <div class="info_1">東祥</div><div class="info_2">038-533-858</div><div class="info_3">花蓮縣吉安鄉吉安路３段55號</div>
+
+            <div class="info_city_block">苗栗縣</div>
+            <div class="info_1">羽堡</div><div class="info_2">037-480-820</div><div class="info_3">苗栗縣竹南鎮正南里中正路84號</div>
+            <div class="info_1">尚銳</div><div class="info_2">037-662-338</div><div class="info_3">苗栗縣頭份鎮中華路1284號</div>
+
+            <div class="info_city_block">臺中市</div>
+            <div class="info_1">大都會</div><div class="info_2">04-2238-5766</div><div class="info_3">臺中市北區崇德路１段413號</div>
+            <div class="info_1">騎安</div><div class="info_2">04-2208-4828</div><div class="info_3">臺中市北區太原路一段398號</div>
+            <div class="info_1">大鳥摩哆</div><div class="info_2">04-2359-6300</div><div class="info_3">臺中市西屯區朝馬路203之6號</div>
+            <div class="info_1">汎晟</div><div class="info_2">04-2389-6198</div><div class="info_3">臺中市南屯區黎明路１段892號</div>
+            <div class="info_1">正宇</div><div class="info_2">04-2527-4928</div><div class="info_3">臺中市豐原區圓環東路147號</div>
+
+            <div class="info_1">一竣</div><div class="info_2">04-2525-1153</div><div class="info_3">臺中市豐原區博愛街124號</div>
+            <div class="info_1">昶宏</div><div class="info_2">04-2535-9487</div><div class="info_3">臺中市潭子區中山路１段11之1號</div>
+            <div class="info_1">攏順利</div><div class="info_2">04-2663-3379</div><div class="info_3">臺中市沙鹿區中山路340號</div>
+
+            <div class="info_city_block">彰化縣</div>
+            <div class="info_1">同新</div><div class="info_2">04-7202-285</div><div class="info_3">彰化縣彰化市中山路２段318號</div>
+            <div class="info_1">員班長</div><div class="info_2">04-711-9518</div><div class="info_3">彰化縣彰化市中山路１段486號</div>
+            <div class="info_1">和興</div><div class="info_2">04-755-2788</div><div class="info_3">彰化縣和美鎮美寮路２段495號</div>
+            <div class="info_1">和旺</div><div class="info_2">04-834-5158</div><div class="info_3">彰化縣員林鎮中山路２段386號</div>
+            <div class="info_1">機動力</div><div class="info_2">04-881-5110</div><div class="info_3">彰化縣溪湖鎮西環路493號</div>
+            <div class="info_1">聿泰</div><div class="info_2">04-875-0322</div><div class="info_3">彰化縣田中鎮復興路615號</div>
+
+            <div class="info_city_block">雲林縣</div>
+            <div class="info_1">發鑫</div><div class="info_2">05-632-3056</div><div class="info_3">雲林縣虎尾鎮林森路２段203號</div>
+
+            <div class="info_city_block">嘉義市</div>
+            <div class="info_1">東達</div><div class="info_2">05-227-9820</div><div class="info_3">嘉義市東區公明路215號</div>
+            <div class="info_1">常嘉</div><div class="info_2">05-236-0912</div><div class="info_3">嘉義市西區興業西路19號</div>
+            <div class="info_1">新禾</div><div class="info_2">05-220-1819</div><div class="info_3">嘉義市東區忠孝路600號</div>
+
+            <div class="info_city_block">臺南市</div>
+            <div class="info_1">明陽</div><div class="info_2">06-264-4833</div><div class="info_3">臺南市南區健康路２段371號</div>
+            <div class="info_1">東昀</div><div class="info_2">06-264-8578</div><div class="info_3">臺南市南區中華西路１段271號</div>
+            <div class="info_1">六德</div><div class="info_2">06-235-5717</div><div class="info_3">臺南市北區小東路281號</div>
+            <div class="info_1">車旺</div><div class="info_2">06-258-6997</div><div class="info_3">臺南市北區海安路３段121號</div>
+            <div class="info_1">新天地</div><div class="info_2">06-302-0775</div><div class="info_3">臺南市永康區中華路672號</div>
+            <div class="info_1">上鎰</div><div class="info_2">06-723-2009</div><div class="info_3">臺南市佳里區仁愛路349號</div>
+
+            <div class="info_city_block">高雄市</div>
+            <div class="info_1">福堂</div><div class="info_2">07-221-2922</div><div class="info_3">高雄市新興區民生一路218號</div>
+            <div class="info_1">佰冠</div><div class="info_2">07-581-0188</div><div class="info_3">高雄市鼓山區中華一路42號</div>
+            <div class="info_1">躍揚</div><div class="info_2">07-333-3100</div><div class="info_3">高雄市前鎮區三多二路369號</div>
+            <div class="info_1">大倫</div><div class="info_2">07-313-1100</div><div class="info_3">高雄市三民區九如一路909號</div>
+            <div class="info_1">機車工場</div><div class="info_2">07-341-6035</div><div class="info_3">高雄市三民區民族一路619號</div>
+
+            <div class="info_1">新大</div><div class="info_2">07-390-8513</div><div class="info_3">高雄市三民區鼎中路52號</div>
+            <div class="info_1">頂富</div><div class="info_2">07-360-5155</div><div class="info_3">高雄市楠梓區益群路26號</div>
+            <div class="info_1">龍加</div><div class="info_2">07-806-6093</div><div class="info_3">高雄市小港區康莊路38號</div>
+            <div class="info_1">久聖</div><div class="info_2">07-581-5832</div><div class="info_3">高雄市左營區忠信路2號</div>
+            <div class="info_1">錡霖</div><div class="info_2">07-341-5894</div><div class="info_3">高雄市左營區民族一路1080之1號</div>
+
+            <div class="info_1">維格</div><div class="info_2">07-799-2835</div><div class="info_3">高雄市鳳山區中山西路242號</div>
+            <div class="info_1">祥慶</div><div class="info_2">07-713-4143</div><div class="info_3">高雄市鳳山區武慶二路132號</div>
+            <div class="info_1">巨展</div><div class="info_2">07-643-2986</div><div class="info_3">高雄市林園區王公路495號</div>
+
+            <div class="info_city_block">澎湖縣</div>
+            <div class="info_1">漢忠</div><div class="info_2">06-927-2772</div><div class="info_3">澎湖縣馬公市西文里文德路30號</div>
+
+            <div class="info_city_block">屏東縣</div>
+            <div class="info_1">杰力</div><div class="info_2">08-772-2072</div><div class="info_3">屏東縣里港鄉中山路19號</div>
+            <div class="info_1">東騰</div><div class="info_2">08-835-6677</div><div class="info_3">屏東縣東港鎮中正路１段114號</div>
+
+        </div>
     </div>
 
     <!-- CF欣賞 -->
     <div id="cf_block" class="scroll_block" hash="/CF">
-        CF
+
     </div>
 
     <!-- 報名 -->

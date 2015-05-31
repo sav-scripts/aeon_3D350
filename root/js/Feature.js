@@ -40,9 +40,9 @@
 
             $btnDom.bind("click", function()
             {
+               Main.toBlock("/Feature");
                toBlock(index);
             });
-
         }
     };
 

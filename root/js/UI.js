@@ -77,8 +77,9 @@
 
         $doms.btnDownload.bind("click", function()
         {
-            //window.open("misc/download.pdf", "_blank");
-            ATWPop.playVideo();
+            ga("send", "pageview", "/Download");
+            window.open("misc/download.pdf", "_blank");
+            //ATWPop.playVideo();
         });
 
         $doms.btnCF.bind("click", function()

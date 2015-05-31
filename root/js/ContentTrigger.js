@@ -4,6 +4,8 @@
 
     window.ContentTrigger = ContentTrigger;
 
+
+
     ContentTrigger.align =
     {
         TOP:"top",
@@ -17,7 +19,7 @@
         ALWAYS:"always"
     };
 
-    function ContentTrigger()
+    function ContentTrigger(_cbOnScroll)
     {
         var _p = ContentTrigger.prototype = this;
 
