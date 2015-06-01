@@ -22,11 +22,21 @@
         $doms.whiteShadow = $doms.container.find("> .color_white_shadow");
         $doms.blackShadow = $doms.container.find("> .color_black_shadow");
 
+        $doms.whiteTitle = $doms.container.find(".color_title_white");
+        $doms.blackTitle = $doms.container.find(".color_title_black");
+
+        Helper.getInitValue($doms.blackTitle[0]);
+        Helper.getInitValue($doms.whiteTitle[0]);
+
         //$(window).bind("mousemove", function(event)
-        $doms.container.bind("mousemove", function(event)
+
+        update();
+
+        $doms.container.bind("mousemove", update);
+        function update(event)
         {
             var windowWidth = $(window).width();
-            var x = event.clientX;
+            var x = !event? windowWidth: event.clientX;
             if(_oldX == null) _oldX = x;
 
             var dx = x - _oldX;
@@ -37,6 +47,7 @@
 
             $doms.white.width(x);
             $doms.black.width(windowWidth - x);
+
 
             var oldWidth;
 
@@ -59,7 +70,7 @@
 
             $doms.whiteShadow.css("right", windowWidth - x);
             $doms.blackShadow.css("left", x);
-        });
+        }
 
     };
 
@@ -67,6 +78,15 @@
     {
         resizeImage($doms.whiteImage, "left");
         resizeImage($doms.blackImage, "right");
+
+        var left = width *.5 + 500;
+        var right = left + $doms.whiteTitle[0].init.w;
+        var dx = width - 110 - right;
+        //console.log("dx = " + dx);
+        if(dx < 0) left += dx;
+
+        $doms.whiteTitle.css("left", left + "px");
+        $doms.blackTitle.css("right", width - left - $doms.blackTitle[0].init.w + "px");
 
         var sizeObj = MathHelper.getSize_cover(width, height, 2400, 1300);
         var dom = $doms.title[0];

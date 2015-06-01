@@ -8,8 +8,10 @@
     var _hashDic, _contentList;
     var _defaultHash = "/Index";
 
-    var _isScrollButtonHidding = true;
+    var _isIndexFixHidden = false;
     var _contentTrigger;
+
+    var _windowWidth;
 
     _p.videoID =
     {
@@ -47,6 +49,11 @@
         CF.init();
         ATW.init();
 
+        $("#logo").bind("click", function()
+        {
+           window.open("http://www.aeonmotor.com.tw/home.php", "_blank");
+        });
+
 
         setupScrollButton($(".scroll_btn"));
 
@@ -79,6 +86,7 @@
 
         _contentTrigger = new ContentTrigger();
 
+        setupParticle();
         setupScrollTrigger();
 
         $(window).bind("resize", onResize);
@@ -94,16 +102,17 @@
 
         if(Utility.urlParams.skip_intro != "1") ATWPop.playVideo();
 
-        setupParticle();
     }
 
     function setupParticle()
     {
         var oldScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var windowWidth;
 
-        var topFlash = $(".top_flash")[0];
-        var bottomFlash = $(".bottom_flash")[0];
+        //var topFlash =
+        //var bottomFlash =
+
+        $doms.topFlash = $(".top_flash");
+        $doms.bottomFlash = $(".bottom_flash");
 
         $(window).on("scroll", function()
         {
@@ -112,44 +121,56 @@
             oldScrollTop = scrollTop;
             if(dy == 0) return;
 
-            windowWidth = $(window).width();
 
-            var count = Math.abs(parseInt(dy / 10));
-            if(count > 6) count = 6;
+            createSpark(dy, _windowWidth);
 
-            var flip = dy > 0? -1:1;
-
-            for(var i=0;i<count;i++)
-            {
-                createOne(flip);
-            }
-
-            var h;
-            var maxHeight = 20;
-
-            if(dy > 0)
-            {
-                h = $(topFlash).height() + 3;
-                if(h > maxHeight) h = maxHeight;
-                TweenMax.set(topFlash, {height:h});
-                TweenMax.to(topFlash,.5, {height:0, ease:Power1.easeIn});
-            }
-            else
-            {
-                h = $(bottomFlash).height() + 3;
-                if(h > maxHeight) h = maxHeight;
-                TweenMax.set(bottomFlash, {height:h});
-                TweenMax.to(bottomFlash,.5, {height:0, ease:Power1.easeIn});
-            }
 
 
         });
+
+
+    }
+
+    function createSpark(dy, windowWidth, maxCount)
+    {
+        if(dy > 0 && _isIndexFixHidden == false) return;
+
+        var h;
+        var maxHeight = 20;
+        if(maxCount == null) maxCount = 6;
+
+        var count = Math.abs(parseInt(dy / 10));
+        if(count > maxCount) count = maxCount;
+
+        var flip = dy > 0? -1:1;
+
+        for(var i=0;i<count;i++)
+        {
+            createOne(flip);
+        }
+
+
+        if(dy > 0)
+        {
+            h = $doms.topFlash.height() + 3;
+            if(h > maxHeight) h = maxHeight;
+            TweenMax.set($doms.topFlash[0], {height:h});
+            TweenMax.to($doms.topFlash[0],.5, {height:0, ease:Power1.easeIn});
+        }
+        else
+        {
+            h = $doms.bottomFlash.height() + 3;
+            if(h > maxHeight) h = maxHeight;
+            TweenMax.set($doms.bottomFlash[0], {height:h});
+            TweenMax.to($doms.bottomFlash[0],.5, {height:0, ease:Power1.easeIn});
+        }
+
 
         function createOne(flip)
         {
             var dom = document.createElement("div");
             dom.className = Math.random() > .2? "particle_0": "particle_1";
-            $(dom).css(flip==1?"bottom":"top", flip==1?-30:-20).css("left", parseInt(Math.random()* windowWidth));
+            $(dom).css(flip==1?"bottom":"top", flip==1?-30:-18).css("left", parseInt(Math.random()* windowWidth));
 
             $("body").append(dom);
 
@@ -170,7 +191,9 @@
                 $(dom).detach();
             });
         }
+
     }
+
 
     function setupScrollTrigger()
     {
@@ -178,9 +201,25 @@
         TweenMax.set($doms.mainScrollBtn, {autoAlpha:0, marginBottom:-30});
 
         var mark = _hashDic["/Brand"].block[0];
+
+        var oldDisplay = $("#index_fix_block").css("display");
+
         _contentTrigger.add("2ndContent", mark, function(condition)
         {
-            $("#index_fix_block").css("display", condition == "below"? "block": "none");
+            var newDisplay = condition == "below"? "block": "none";
+            _isIndexFixHidden = condition != "below";
+            if(newDisplay != oldDisplay)
+            {
+                $("#index_fix_block").css("display", newDisplay);
+                oldDisplay = newDisplay;
+
+                if(newDisplay == "none")
+                {
+                    createSpark(1000, _windowWidth, 50);
+                }
+
+                //console.log("changed");
+            }
             /*
             var oldBool = _isScrollButtonHidding;
             _isScrollButtonHidding = condition == "below";
@@ -295,7 +334,7 @@
 
     function onResize()
     {
-        var width = $(window).width(),
+        var width = _windowWidth = $(window).width(),
             height = $(window).height();
 
         Index.onResize(width, height);
@@ -308,6 +347,7 @@
 
         ATWPop.onResize();
 
+        _contentTrigger.refresh();
     }
 
 

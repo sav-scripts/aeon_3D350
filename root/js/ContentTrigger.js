@@ -39,10 +39,10 @@
 
         _p.refresh = function()
         {
-            onScroll();
+            onScroll(null, true);
         };
 
-        function onScroll()
+        function onScroll(event, forceExecute)
         {
             //var scrollTop = $(document).scrollTop();
             //var scrollTop = $(this).scrollTop();
@@ -57,7 +57,7 @@
 
             var scrollOffset = scrollTop - _oldScrollTop;
             _oldScrollTop = scrollTop;
-            if(scrollOffset == 0) return;
+            if(scrollOffset == 0 && !forceExecute) return;
 
             var windowHeight =$(window).height();
 

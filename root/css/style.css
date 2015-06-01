@@ -76,6 +76,7 @@ body{
     background: url(../images/logo.png);
     width: 158px;
     height: 49px;
+    cursor: pointer;
 }
 .scroll_block{
     position: relative;
@@ -308,15 +309,20 @@ body > .scroll_btn{
 /** brand **/
 #brand_block{
     background: #000;
-    height: 1330px;
+    /*height: 1200px;*/
+    height: 100%;
+    min-height: 960px;
 }
 #brand_block > .brand{
     position: absolute;
     background: url(../images/brand.jpg);
     width: 1700px;
-    height: 1099px;
+    height: 1200px;
     left:50%;
     margin-left: -850px;
+    top:50%;
+    margin-top: -470px;
+
 }
 
 /** atw **/
@@ -512,6 +518,25 @@ body > .scroll_btn{
 #color_block{
     background: #000;
 }
+.color_title_white{
+    position: absolute;
+    background: url(../images/color_t02.png);
+    width: 258px;
+    height: 52px;
+    bottom: 100px;
+    left:50%;
+    z-index: 1;
+}
+.color_title_black{
+    position: absolute;
+    background: url(../images/color_t01.png);
+    width: 258px;
+    height: 52px;
+    bottom: 100px;
+    right:50%;
+    z-index: 1;
+
+}
 .color_white_shadow{
     position: absolute;
     background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2)); /* Standard syntax (must be last) */
@@ -626,7 +651,7 @@ body > .scroll_btn{
     position: absolute;
     background: url(../images/info_image_1.jpg);
     width: 1200px;
-    height: 447px;
+    height: 424px;
     left:50%;
     top:10px;
     margin-left: -600px;
@@ -705,7 +730,7 @@ body > .scroll_btn{
     top:50%;
     left:50%;
     width: 600px;
-    height: 650px;
+    height: 670px;
     margin-left: -300px;
     margin-top:-325px;
     /*border: 1px #777 solid;*/
@@ -724,7 +749,7 @@ body > .scroll_btn{
     left:50%;
     background:url(../images/sign_main_text.png);
     width: 578px;
-    height: 406px;
+    height: 429px;
     top:110px;
     margin-left: -289px;
 }
