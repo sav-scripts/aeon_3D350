@@ -39,6 +39,8 @@
             }
         });
 
+        $("#atw_video_small")[0].className = "video_player";
+
         function onPlayerReady()
         {
             $("#atw_video_small")[0].className = "video_player";
@@ -118,11 +120,13 @@
             }
         });
 
-
+        $("#atw_video")[0].className = "video_player";
 
 
         function onPlayerReady(event)
         {
+            console.log("player ready");
+
             if(_isOn == false) return;
 
             $("#atw_video")[0].className = "video_player";
@@ -153,7 +157,7 @@
         TweenMax.to(doms.base,.5, {alpha:0});
         TweenMax.to("#atw_video",.5, {alpha:0, onComplete:function()
         {
-            if(_player)
+            if(_player && _player.stopVideo)
             {
                 _player.stopVideo();
                 _player.destroy();

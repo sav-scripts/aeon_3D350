@@ -335,7 +335,7 @@ body > .scroll_btn{
     position: absolute;
     background: url(../images/ATW.jpg);
     width: 1700px;
-    height: 744px;
+    height: 736px;
     left:50%;
     margin-left: -850px;
     top:380px;
@@ -659,8 +659,8 @@ body > .scroll_btn{
 .info_image_2{
     position: absolute;
     background: url(../images/info_image_2.png);
-    width: 129px;
-    height: 34px;
+    width: 154px;
+    height: 54px;
     left:50%;
     top:420px;
     margin-left: -481px;
@@ -749,7 +749,7 @@ body > .scroll_btn{
     left:50%;
     background:url(../images/sign_main_text.png);
     width: 578px;
-    height: 429px;
+    height: 434px;
     top:110px;
     margin-left: -289px;
 }

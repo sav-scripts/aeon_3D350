@@ -39,6 +39,8 @@
             }
         });
 
+        $("#cf_video")[0].className = "video_player";
+
         function onPlayerReady()
         {
             $("#cf_video")[0].className = "video_player";
