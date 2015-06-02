@@ -6,6 +6,8 @@
     var $doms = {};
 
     var _oldX = null;
+    var _isWhite = true;
+    var _tweenObj = {clientX:0};
 
     _p.init = function ()
     {
@@ -28,11 +30,61 @@
         Helper.getInitValue($doms.blackTitle[0]);
         Helper.getInitValue($doms.whiteTitle[0]);
 
+        if(BrowserDetect.isMobile)
+        {
+            $doms.whiteShadow.css("display", "none");
+            $doms.blackShadow.css("display", "none");
+        }
+
         //$(window).bind("mousemove", function(event)
 
+        _tweenObj.clientX = $(window).width();
         update();
 
-        $doms.container.bind("mousemove", update);
+        if(BrowserDetect.isMobile && ('DeviceOrientationEvent' in window))
+        {
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
+        else
+        {
+            bindMouseTrigger();
+        }
+
+
+        function handleOrientation(event)
+        {
+            //trace(event.gamma);
+
+            if(event.gamma == null)
+            {
+                bindMouseTrigger();
+                window.removeEventListener("deviceorientation", handleOrientation);
+            }
+
+            var oldIsWhite = _isWhite;
+            _isWhite = (event.gamma > 0);
+
+            if(oldIsWhite != _isWhite)
+            {
+
+                var targetX = _isWhite? $(window).width(): 0;
+
+                TweenMax.killTweensOf(_tweenObj);
+                TweenMax.to(_tweenObj,.8, {clientX:targetX, onUpdate:function()
+                {
+                    update(_tweenObj);
+                }});
+
+
+            }
+
+        }
+
+        function bindMouseTrigger()
+        {
+            $doms.container.bind("mousemove", update);
+        }
+
         function update(event)
         {
             var windowWidth = $(window).width();

@@ -13,6 +13,13 @@
 
     var _windowWidth;
 
+    _p.settings =
+    {
+        mWidth: 720,
+        maxSparkCount: 6,
+        maxSparkCount2: 50
+    };
+
     _p.videoID =
     {
         atw:"SPpBHNWsad0",
@@ -30,7 +37,19 @@
         SimplePreloading.init();
 
         initYouTube(build);
+
+        setupDebug();
+
     };
+
+    function setupDebug()
+    {
+        window.trace = function(string)
+        {
+            $(".debug_block").text(string);
+            console.log(string);
+        }
+    }
 
     function build()
     {
@@ -86,7 +105,8 @@
 
         _contentTrigger = new ContentTrigger();
 
-        setupParticle();
+
+        if(!BrowserDetect.isMobile) setupParticle();
         setupScrollTrigger();
 
         $(window).bind("resize", onResize);
@@ -133,11 +153,12 @@
 
     function createSpark(dy, windowWidth, maxCount)
     {
+        if(BrowserDetect.isMobile) return;
         if(dy > 0 && _isIndexFixHidden == false) return;
 
         var h;
         var maxHeight = 20;
-        if(maxCount == null) maxCount = 6;
+        if(maxCount == null) maxCount = _p.settings.maxSparkCount;
 
         var count = Math.abs(parseInt(dy / 10));
         if(count > maxCount) count = maxCount;
@@ -170,7 +191,7 @@
         {
             var dom = document.createElement("div");
             dom.className = Math.random() > .2? "particle_0": "particle_1";
-            $(dom).css(flip==1?"bottom":"top", flip==1?-30:-18).css("left", parseInt(Math.random()* windowWidth));
+            $(dom).css(flip==1?"bottom":"top", flip==1?-25:-18).css("left", parseInt(Math.random()* windowWidth));
 
             $("body").append(dom);
 
@@ -215,7 +236,7 @@
 
                 if(newDisplay == "none")
                 {
-                    createSpark(1000, _windowWidth, 50);
+                    createSpark(1000, _windowWidth, _p.settings.maxSparkCount2);
                 }
 
                 //console.log("changed");
@@ -336,6 +357,9 @@
     {
         var width = _windowWidth = $(window).width(),
             height = $(window).height();
+
+        _p.settings.maxSparkCount = width/1900*6;
+        _p.settings.maxSparkCount2 = width/1900*50;
 
         Index.onResize(width, height);
         Feature.onResize(width, height);

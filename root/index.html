@@ -4,7 +4,47 @@
     <meta charset="UTF-8">
     <title>AEON 3D-350</title>
     <link rel="icon" href="images/icon_16.jpg" type="image/x-icon"/>
-    <meta name="viewport" content="width=1200, user-scalable=no"/>
+    <!--meta name="viewport" content="width=720"-->
+
+    <script>
+
+        var wasUsedLandscape = false;
+        var rewrited = false;
+
+        updateViewport();
+        function updateViewport()
+        {
+            var portraitModeMinWidth = 720;
+            var landscapeModeMinWidth = 720;
+
+            var divString, scaleRate, targetWidth;
+
+            if (wasUsedLandscape || (screen.width < portraitModeMinWidth && screen.width < screen.height))
+            {
+
+                targetWidth = portraitModeMinWidth;
+            }
+            else if(screen.width < landscapeModeMinWidth && screen.width > screen.height)
+            {
+                wasUsedLandscape = true;
+                targetWidth = landscapeModeMinWidth
+            }
+
+            if(targetWidth != null)
+            {
+                /*$("#myViewport").detach();*/
+                scaleRate =  screen.width/targetWidth;
+                var contentString = 'width='+targetWidth+'px,initial-scale='+scaleRate+', maximum-scale='+scaleRate+', minimum-scale='+scaleRate+', user-scaleable=no';
+                divString = '<meta id="myViewport" name="viewport" content="'+contentString+'">';
+                document.write(divString);
+
+                rewrited = true;
+            }
+        }
+
+    </script>
+
+
 
     <meta property="og:title" content="AEON 3D-350" />
     <meta property="og:type" content="activity" />
@@ -16,6 +56,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/ScrollToPlugin.min.js"></script>
+
+    <!--<script src="js/lib/modernizr.custom.90952.js"></script>-->
+    <script src="js/lib/lenticular.min.js"></script>
 
 
     <script src="js/simple_preloading/SimplePreloading.0.0.7.js"></script>
@@ -55,6 +98,8 @@
 </head>
 <body onload="Main.init();">
 
+    <div class="debug_block"></div>
+
     <div class="on_loading">
         <div class="on_loading_icon"></div>
     </div>
@@ -91,16 +136,20 @@
     <!-- 首頁 -->
     <div id="index_fix_block">
         <div class="left_block_0">
-            <img src="images/index_left_0.jpg"/>
+            <!--img src="images/index_left_0.jpg"/-->
+            <div class="index_image"></div>
         </div>
         <div class="left_block_1">
-            <img src="images/index_left_1.jpg"/>
+            <!--img src="images/index_left_1.jpg"/-->
+            <div class="index_image"></div>
         </div>
         <div class="right_block_0">
-            <img src="images/index_right_0.jpg"/>
+            <!--img src="images/index_right_0.jpg"/-->
+            <div class="index_image"></div>
         </div>
         <div class="right_block_1">
-            <img src="images/index_right_1.jpg"/>
+            <!--img src="images/index_right_1.jpg"/-->
+            <div class="index_image"></div>
         </div>
 
     </div>

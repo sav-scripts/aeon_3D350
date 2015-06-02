@@ -109,7 +109,7 @@
             }
             else
             {
-                var url = "api/send_sign.php";
+                var url = "/api/send_sign.php";
                 var method = "POST";
 
                 //SimplePreloading.setProgress("");

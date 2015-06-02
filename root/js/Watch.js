@@ -18,10 +18,56 @@
         $doms.contents.css("display", "none").css("z-index", 0);
         $($doms.contents[_currentIndex]).css("display", "block").css("z-index", 1);
 
-        $doms.container.bind("mousemove", function(event)
+        /*
+        var myLenticular = new Lenticular.Image($doms.contents[_currentIndex], {
+            images: 'images/360_0##.jpg',
+            frames: 6,
+            axis:"x"
+        });
+
+        myLenticular.activate();
+        myLenticular.showFrame(3);
+        */
+
+        //trace(Modernizr.deviceorientation);
+
+        if(BrowserDetect.isMobile && ('DeviceOrientationEvent' in window))
         {
-            var ratio = event.clientX / $(window).width();
-            var index = parseInt(ratio * 7);
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
+        else
+        {
+            bindMouseTrigger();
+        }
+
+        var totalArc = 60,
+            halfArc = totalArc*.5;
+
+        function handleOrientation(event)
+        {
+            trace(event.gamma);
+
+            if(event.gamma == null)
+            {
+                bindMouseTrigger();
+                window.removeEventListener("deviceorientation", handleOrientation);
+            }
+
+
+            var arc = event.gamma;
+            if(arc < -halfArc) arc = -halfArc;
+            if(arc > halfArc) arc = halfArc;
+            updateFrame((totalArc - (arc+halfArc))/totalArc);
+
+        }
+
+        function updateFrame(ratio)
+        {
+            //trace(ratio);
+            if(ratio >= 1) ratio = .99;
+            var index = parseInt(ratio * 7) + 3;
+            index = index * -1 + 12;
+            //console.log("index = " + index);
             index = index % 6;
 
             if(index != _currentIndex)
@@ -38,8 +84,19 @@
                 //TweenMax.to($current,.1, {alpha:1});
 
             }
+        }
 
-        });
+        function bindMouseTrigger()
+        {
+
+
+             $doms.container.bind("mousemove", function(event)
+             {
+                 var ratio = event.clientX / $(window).width();
+                 updateFrame(ratio);
+
+             });
+        }
 
     };
 

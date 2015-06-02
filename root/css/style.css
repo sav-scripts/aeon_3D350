@@ -2,15 +2,34 @@ html{
     margin: 0;
     width: 100%;
     height: 100%;
+    top:0;
+    left:0;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 body{
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
+    top:0;
+    left:0;
+    /*overflow-y: auto;*/
+    /*overflow-x: hidden;*/
+    position: absolute;
     margin: 0;
     width: 100%;
     height: 100%;
 }
+.debug_block{
+    position: fixed;
+    top:0;
+    background: rgba(0,0,0,.8);
+    width: 100%;
+    height:30px;
+    color:#fff;
+    z-index: 8000;
+    top:0;
+    left:0;
+}
+
 .on_loading{
     position: fixed;
     width: 100%;
@@ -19,6 +38,7 @@ body{
     top:0;
     left:0;
     z-index: 8000;
+    /*display: none;*/
 }
 .on_loading_icon{
     position: fixed;
@@ -84,6 +104,7 @@ body{
     height: 100%;
     z-index: 10;
     color: #fff;
+    overflow: hidden;
 }
 
 /** scroll button **/
@@ -292,6 +313,29 @@ body > .scroll_btn{
 #index_fix_block img{
     position: absolute;
 }
+
+#index_fix_block .index_image{
+    position: absolute;
+}
+.left_block_0 > .index_image{
+    background:url(../images/index_left_0.jpg);
+    background-size: 100% 100%;
+}
+.left_block_1 > .index_image{
+    background:url(../images/index_left_1.jpg);
+    background-size: 100% 100%;
+
+}
+.right_block_0 > .index_image{
+    background:url(../images/index_right_0.jpg);
+    background-size: 100% 100%;
+
+}
+.right_block_1 > .index_image{
+    background:url(../images/index_right_1.jpg);
+    background-size: 100% 100%;
+}
+
 #index_block{
     /*background: rgba(55,0,0,.5);*/
 }
@@ -305,6 +349,53 @@ body > .scroll_btn{
     margin-left: -200px;
     margin-top: -58px;
 }
+
+@media (max-width: 720px)
+{
+    #index_fix_block > .left_block_0{
+        width:100%;
+        height: 50%;
+        bottom:50%;
+    }
+    #index_fix_block > .left_block_1{
+        width:100%;
+        height: 50%;
+        bottom:50%;
+    }
+    #index_fix_block .right_block_0 {
+        width:100%;
+        height: 50%;
+        top:50%;
+        left:auto;
+        right:0;
+    }
+    #index_fix_block .right_block_1 {
+        width:100%;
+        height: 50%;
+        top:50%;
+        left:auto;
+        right:0;
+    }
+    .left_block_0 > .index_image{
+        background:url(../images/index_left_0_m.jpg);
+        background-size: 100% 100%;
+    }
+    .left_block_1 > .index_image{
+        background:url(../images/index_left_1_m.jpg);
+        background-size: 100% 100%;
+
+    }
+    .right_block_0 > .index_image{
+        background:url(../images/index_right_0_m.jpg);
+        background-size: 100% 100%;
+
+    }
+    .right_block_1 > .index_image{
+        background:url(../images/index_right_1_m.jpg);
+        background-size: 100% 100%;
+    }
+}
+
 
 /** brand **/
 #brand_block{
