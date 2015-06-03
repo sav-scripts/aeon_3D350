@@ -126,10 +126,21 @@
 
     Utility.getPath = function(url)
     {
+        /*
         if(!url) url = window.location.href;
         var array = Utility.analyzeURL(url);
 
         return url.replace(array[7], "");
+        */
+        if(!url) url = window.location.href;
+
+        //var rest = (location.pathname+location.search).substr(1);
+
+        var string = url.indexOf('?') == -1? url: url.substr(0, url.indexOf('?'));
+
+        if(string.indexOf('#') == -1) return string;
+        else return string.substr(0, string.indexOf('#'));
+
     };
 
     Utility.getProtocol = function(url)

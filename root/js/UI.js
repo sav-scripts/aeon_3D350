@@ -22,6 +22,7 @@
         $doms.btnCF = $($buttons[8]);
         $doms.btnDownload = $($buttons[9]);
         $doms.btnSign = $($buttons[10]);
+        $doms.btnShare = $($buttons[11]);
 
         TweenMax.set($doms.container,{opacity:.5});
 
@@ -90,6 +91,11 @@
         $doms.btnSign.bind("click", function()
         {
             Main.toBlock("/Sign");
+        });
+
+        $doms.btnShare.bind("click", function()
+        {
+            Main.toBlock("/Share");
         });
 
     };

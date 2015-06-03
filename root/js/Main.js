@@ -13,9 +13,12 @@
 
     var _windowWidth;
 
+    var _cbAfterToBlock;
+
     _p.settings =
     {
         mWidth: 720,
+        cWidth: 1200,
         maxSparkCount: 6,
         maxSparkCount2: 50
     };
@@ -36,7 +39,14 @@
     {
         SimplePreloading.init();
 
-        initYouTube(build);
+        var appId = "1384405598556258";
+        if(window.location.host == 'local.savorks.com') appId = '1384627715200713';
+
+        //SavFB.init(appId);
+        FBHelper.init(appId, function()
+        {
+            initYouTube(build);
+        });
 
         setupDebug();
 
@@ -60,6 +70,7 @@
 
 
         RightMenu.init();
+        Spec.init();
         Index.init();
         Feature.init();
         MotoColor.init();
@@ -67,6 +78,7 @@
         Sign.init();
         CF.init();
         ATW.init();
+        Share.init();
 
         $("#logo").bind("click", function()
         {
@@ -281,8 +293,10 @@
         */
     }
 
-    _p.toBlock = function(hashName)
+    _p.toBlock = function(hashName, cb)
     {
+        _cbAfterToBlock = cb;
+
         if(Utility.getHash() != hashName)
         {
             Utility.setHash(hashName);
@@ -307,7 +321,11 @@
         if(duration < .9) duration = .9;
         if(fixDuration != null) duration = fixDuration;
 
-        TweenMax.to(window, duration, {scrollTo:{y:targetTop}, ease:Power1.easeInOut});
+        TweenMax.to(window, duration, {scrollTo:{y:targetTop}, ease:Power1.easeInOut, onComplete:function()
+        {
+            if(_cbAfterToBlock != null) _cbAfterToBlock.apply();
+            _cbAfterToBlock = null;
+        }});
     };
 
     function setupScrollButton($btn)
@@ -362,12 +380,14 @@
         _p.settings.maxSparkCount2 = width/1900*50;
 
         Index.onResize(width, height);
+        Spec.onResize(width, height);
         Feature.onResize(width, height);
         MotoColor.onResize(width, height);
         Watch.onResize(width, height);
         CF.onResize(width, height);
         Sign.onResize(width, height);
         ATW.onResize(width, height);
+        Share.onResize(width, height);
 
         ATWPop.onResize();
 

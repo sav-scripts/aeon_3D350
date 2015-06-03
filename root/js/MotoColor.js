@@ -15,8 +15,8 @@
         $doms.white = $doms.container.find("> .moto_white");
         $doms.black = $doms.container.find("> .moto_black");
 
-        $doms.whiteImage = $doms.white.find("img");
-        $doms.blackImage = $doms.black.find("img");
+        $doms.whiteImage = $doms.white.find(".moto_image");
+        $doms.blackImage = $doms.black.find(".moto_image");
 
         $doms.title = $doms.container.find("> .color_title");
         Helper.getInitValue($doms.title[0]);
@@ -128,6 +128,10 @@
 
     _p.onResize = function (width, height)
     {
+        var isMobile = width <= Main.settings.cWidth;
+
+        var imageSize = isMobile? {w:1200, h:1420}: {w:2400, h:1300};
+
         resizeImage($doms.whiteImage, "left");
         resizeImage($doms.blackImage, "right");
 
@@ -140,7 +144,7 @@
         $doms.whiteTitle.css("left", left + "px");
         $doms.blackTitle.css("right", width - left - $doms.blackTitle[0].init.w + "px");
 
-        var sizeObj = MathHelper.getSize_cover(width, height, 2400, 1300);
+        var sizeObj = MathHelper.getSize_cover(width, height, imageSize.w, imageSize.h);
         var dom = $doms.title[0];
 
         $doms.title.width(dom.init.w*sizeObj.ratio).height(dom.init.h*sizeObj.ratio).css("margin-top", dom.init.mt*sizeObj.ratio);
@@ -150,12 +154,9 @@
         function resizeImage($img, hString)
         {
 
-            var imageWidth = $img.width();
-            var imageHeight = $img.height();
+            var size = MathHelper.getSize_cover(width, height, imageSize.w, imageSize.h);
 
-            var size = MathHelper.getSize_cover(width, height, imageWidth, imageHeight);
-
-            $img.attr("width", size.width + "px").attr("height", size.height + "px").css(hString, (width - size.width) *.5).css("top", (height - size.height) *.5);
+            $img.css("width", size.width + "px").css("height", size.height + "px").css(hString, (width - size.width) *.5).css("top", (height - size.height) *.5);
         }
     };
 

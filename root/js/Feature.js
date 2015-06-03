@@ -10,6 +10,8 @@
     var _isLocking = false;
     var _nextIndex = null;
 
+    var _isMobileMode = false;
+
     _p.init = function ()
     {
         var i;
@@ -112,6 +114,24 @@
 
     _p.onResize = function(width, height)
     {
+
+        var oldB = _isMobileMode;
+        _isMobileMode = (width <= Main.settings.cWidth);
+
+        if(oldB != _isMobileMode)
+        {
+            if(_isMobileMode)
+            {
+                $(".feature_block").css("display", "block").css("left", 0);
+            }
+            else
+            {
+                $(".feature_block").css("display", "none").css("left", 0);
+
+                var $current = $doms["block_" + _currentIndex];
+                $current.css("display", "block");
+            }
+        }
 
     };
 

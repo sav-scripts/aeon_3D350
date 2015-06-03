@@ -25,6 +25,8 @@
         $doms.rightBlock_0 = $doms.container.find("> .right_block_0");
         $doms.rightBlock_1 = $doms.container.find("> .right_block_1");
 
+        $doms.btnShare = $("#index_block").find("> .index_share_btn");
+
         //$doms.leftImages = $([$doms.leftBlock_0.find("img")[0], $doms.leftBlock_1.find("img")[0]]);
         //$doms.rightImages = $([$doms.rightBlock_0.find("img")[0], $doms.rightBlock_1.find("img")[0]]);
 
@@ -38,6 +40,14 @@
 
         _timer = new TimelineMax({repeat:-1, paused:false});
         _timer.add(triggerSwitch, SWITCH_DELAY);
+
+        $doms.btnShare.bind("click", function()
+        {
+           Share.tryShare(function()
+           {
+               Main.toBlock("/Share", Share.openForm);
+           });
+        });
 
         _isInit = true;
     };

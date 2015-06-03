@@ -122,29 +122,29 @@
                     data: params,
                     dataType: "json"
                 })
-                    .done(function (response)
+                .done(function (response)
+                {
+                    //if(closeLoading || (closeLoading == null && _defaultCloseLoading)) SimplePreloading.hide();
+
+                    console.log("response = " + JSON.stringify(response));
+
+                    if (response.res == "ok")
                     {
-                        //if(closeLoading || (closeLoading == null && _defaultCloseLoading)) SimplePreloading.hide();
-
-                        console.log("response = " + JSON.stringify(response));
-
-                        if (response.res == "ok")
-                        {
-                            alert("您的報名資料已送出成功, 感謝您的參予.");
-                            clearForm();
-                        }
-                        else
-                        {
-                            alert(response.res);
-                        }
-                        SimplePreloading.hide();
-
-                    })
-                    .fail(function ()
+                        alert("您的報名資料已送出成功, 感謝您的參予.");
+                        clearForm();
+                    }
+                    else
                     {
-                        alert("無法取得伺服器資料");
-                        SimplePreloading.hide();
-                    });
+                        alert(response.res);
+                    }
+                    SimplePreloading.hide();
+
+                })
+                .fail(function ()
+                {
+                    alert("無法取得伺服器資料");
+                    SimplePreloading.hide();
+                });
             }
         }
 

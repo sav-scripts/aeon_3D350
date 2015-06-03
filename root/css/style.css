@@ -26,8 +26,8 @@ body{
     height:30px;
     color:#fff;
     z-index: 8000;
-    top:0;
     left:0;
+    display: none;
 }
 
 .on_loading{
@@ -255,6 +255,13 @@ body > .scroll_btn{
     background-position: -115px -420px;
 }
 
+#right_menu > .group > .menu_button:nth-of-type(12){
+    background:url(../images/menu_main.png) 0 -420px no-repeat;
+}
+#right_menu > .group > .menu_button:nth-of-type(12):hover{
+    background-position: -115px -420px;
+}
+
 #right_menu > .group > .menu_button:active{
     /*border-top: #555 2px solid;*/
     /*border-bottom: #111 0 solid;*/
@@ -350,6 +357,23 @@ body > .scroll_btn{
     margin-top: -58px;
 }
 
+#index_block > .index_share_btn{
+    position: absolute;
+    right:130px;
+    bottom: 30px;
+    background: url(../images/index_c4a.png) 0 0 no-repeat;
+    width: 231px;
+    height: 115px;
+    cursor: pointer;
+}
+
+#index_block > .index_share_btn:hover{
+    background-position: 0 -120px;
+}
+#index_block > .index_share_btn:hover:active{
+    bottom:29px;
+}
+
 @media (max-width: 720px)
 {
     #index_fix_block > .left_block_0{
@@ -413,6 +437,29 @@ body > .scroll_btn{
     margin-left: -850px;
     top:50%;
     margin-top: -470px;
+}
+
+
+@media (max-width: 1200px)
+{
+    #brand_block{
+        /*height: 1200px;*/
+        height: 0;
+        padding-top:385.1666%;
+        min-height: 0;
+    }
+    #brand_block > .brand{
+        background: url(../images/brand_1200.jpg) no-repeat;
+        width: 100%;
+        /*height: 4622px;*/
+        background-size: contain;
+        height: 100%;
+        padding-top:385.1666%;
+        left:0;
+        margin-left: 0;
+        top:0;
+        margin-top: 0;
+    }
 
 }
 
@@ -431,6 +478,27 @@ body > .scroll_btn{
     margin-left: -850px;
     top:380px;
 }
+
+
+@media (max-width: 1200px)
+{
+    #atw_block{
+        /*height: 1200px;*/
+        height: 0;
+        padding-top:382.75%;
+    }
+    #atw_block > .atw{
+        background: url(../images/ATW_1200.jpg) no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+        left:0;
+        margin-left: 0;
+    }
+
+}
+
+
 
 /** feature **/
 #feature_block{
@@ -503,6 +571,82 @@ body > .scroll_btn{
     cursor: pointer;
 
     background:url(../images/product_menu_all.png) no-repeat;
+}
+
+
+@media (max-width: 1200px)
+{
+    #feature_block{
+        /*background: url(../images/product_1200.jpg);*/
+        /*background-size: contain;*/
+        /*height:0;*/
+        /*padding-top:1889.5%;*/
+        height: auto;
+    }
+    #feature_block .feature_menu{
+        display: none;
+    }
+
+    #feature_block > .feature_block{
+
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 0;
+    }
+
+    #feature_block > .feature_block:nth-of-type(1){
+        background: url(../images/product01_1200.jpg) no-repeat;
+        background-size: contain;
+        padding-top:262.08%;
+    }
+    #feature_block > .feature_block:nth-of-type(2){
+        background: url(../images/product02_1200.jpg) center center;
+        background-size: contain;
+        padding-top:257.33%;
+    }
+    #feature_block > .feature_block:nth-of-type(3){
+        background: url(../images/product03_1200.jpg) center center;
+        background-size: contain;
+        padding-top:237.66%;
+    }
+    #feature_block > .feature_block:nth-of-type(4){
+        background: url(../images/product04_1200.jpg) center center;
+        background-size: contain;
+        padding-top:169.58%;
+    }
+    #feature_block > .feature_block:nth-of-type(5){
+        background: url(../images/product05_1200.jpg) center center;
+        background-size: contain;
+        padding-top:154.58%;
+    }
+    #feature_block > .feature_block:nth-of-type(6){
+        background: url(../images/product06_1200.jpg) center center;
+        background-size: contain;
+        padding-top:163.66%;
+    }
+    #feature_block > .feature_block:nth-of-type(7){
+        background: url(../images/product07_1200.jpg) center center;
+        background-size: contain;
+        padding-top:159.83%;
+    }
+    #feature_block > .feature_block:nth-of-type(8){
+        background: url(../images/product08_1200.jpg) center center;
+        background-size: contain;
+        padding-top:148.25%;
+    }
+    #feature_block > .feature_block:nth-of-type(9){
+        background: url(../images/product09_1200.jpg) center center;
+        background-size: contain;
+        padding-top:170.91%;
+    }
+    #feature_block > .feature_block:nth-of-type(10){
+        background: url(../images/product10_1200.jpg) center center;
+        background-size: contain;
+        padding-top:164.75%;
+    }
+
+
 }
 /*
 .feature_btn.focused{
@@ -605,6 +749,26 @@ body > .scroll_btn{
     margin-top: -178px;
 }
 
+
+@media (max-width: 1200px)
+{
+    #spec_block {
+        background: url(../images/spec_1200.jpg) center center;
+        background-size: cover;
+    }
+
+    .spec_content{
+        background: url(../images/spec_table_1200.png);
+        background-size: cover;
+        width: 1200px;
+        height: 1973px;
+        top:50%;
+        left:50%;
+        margin-left: -392px;
+        margin-top: -178px;
+    }
+}
+
 /** color **/
 #color_block{
     background: #000;
@@ -680,6 +844,41 @@ body > .scroll_btn{
     position: absolute;
 }
 
+.moto_black .moto_image{
+    position: absolute;
+    background: url(../images/color_black.jpg);
+    background-size: cover;
+    height: 100%;
+}
+
+.moto_white .moto_image{
+    position: absolute;
+    background: url(../images/color_white.jpg);
+    background-size: cover;
+    height: 100%;
+}
+
+@media (max-width: 1200px)
+{
+
+    .moto_black .moto_image{
+        background: url(../images/color_black_1200.png);
+        background-size: cover;
+        height: 100%;
+    }
+
+    .moto_white .moto_image{
+        position: absolute;
+        background: url(../images/color_white_1200.png);
+        background-size: cover;
+        height: 100%;
+    }
+    .color_title, .color_title_white, .color_title_black{
+        display: none;
+    }
+
+}
+
 /** watch **/
 #watch_block{
     background: #000;
@@ -732,11 +931,43 @@ body > .scroll_btn{
     background: url(../images/360_06.jpg) center center;
     background-size: cover;
 }
+@media(max-width: 1200px)
+{
+    .watch_title{
+        display: none;
+    }
+
+    .watch_content:nth-of-type(1){
+        background: url(../images/360_01_1200.png) center center;
+        background-size: cover;
+    }
+    .watch_content:nth-of-type(2){
+        background: url(../images/360_02_1200.png) center center;
+        background-size: cover;
+    }
+    .watch_content:nth-of-type(3){
+        background: url(../images/360_03_1200.png) center center;
+        background-size: cover;
+    }
+    .watch_content:nth-of-type(4){
+        background: url(../images/360_04_1200.png) center center;
+        background-size: cover;
+    }
+    .watch_content:nth-of-type(5){
+        background: url(../images/360_05_1200.png) center center;
+        background-size: cover;
+    }
+    .watch_content:nth-of-type(6){
+        background: url(../images/360_06_1200.png) center center;
+        background-size: cover;
+    }
+}
 
 /** info **/
 #info_block{
     background: #000;
-    height: 4200px;
+    height: 100%;
+    min-height: 650px;
 }
 .info_image_1{
     position: absolute;
@@ -772,11 +1003,12 @@ body > .scroll_btn{
     height:38px;
     margin-top: 3px;
 
-    font-family: '微軟正黑體', serif;
-    font-size: 16px;
-    font-weight: bold;
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 14px;
+    /*font-weight: bold;*/
     letter-spacing: 2px;
-    line-height: 34px;
+    line-height: 36px;
+    color:#eee;
 
 }
 .info_1, .info_2, .info_3{
@@ -885,7 +1117,7 @@ body > .scroll_btn{
     height: 18px;
     background:rgba(255, 255, 255, .15);
     border: none;
-    font-family: '微軟正黑體', serif;
+    font-family: '微軟正黑體', "Heiti TC", serif;
     font-size: 12px;
     color: #ffffff;
 }
@@ -897,7 +1129,7 @@ body > .scroll_btn{
     /*background-color: rgba(255, 255, 255, .15);*/
 
     /* Standard syntax (must be last) */
-    background: #000 linear-gradient(#444, #111);
+    background: #000 linear-gradient(#444, #222);
 
     cursor: pointer;
 
@@ -998,6 +1230,217 @@ body > .scroll_btn{
     width: 120px;
 
     display: none;
+}
+
+/** share **/
+#share_block{
+    /*background:#333;*/
+    height: 100%;
+    background: url(../images/share_bg.jpg) 100% center;
+    background-size: cover;
+    overflow: hidden;
+
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 14px;
+    color: #ffffff;
+
+}
+#share_block > .bg_left{
+    position: absolute;
+    left:0;
+    top:0;
+    background:url(../images/share_bg_l.png) no-repeat 0 0;
+    width: 558px;
+    height:100%;
+    background-size: contain;
+}
+#share_block > .bg_right{
+    position: absolute;
+    right:0;
+    top:0;
+    background:url(../images/share_bg_r.png) no-repeat 100% 0;
+    width: 700px;
+    height:100%;
+    background-size: contain;
+}
+.share_group{
+    position: absolute;
+    top:50%;
+    left:50%;
+    height:280px;
+    margin-top: -180px;
+
+}
+.share_title{
+    position: absolute;
+    top:0;
+    background:url(../images/share_tit.png);
+    width: 533px;
+    height: 151px;
+    left:-266px;
+}
+.share_btn_start{
+    position: absolute;
+    background: url(../images/share_btn_send.png) 0 75px;
+    width: 187px;
+    height: 75px;
+    bottom:30px;
+    left:50%;
+    margin-left: -93px;
+    cursor: pointer;
+}
+.share_btn_start:hover{
+    background-position: 0 0;
+}
+.share_btn_start:active{
+    margin-bottom: -1px;
+}
+.share_btn_start.formMode{
+    background: url(../images/sign_btn_send.png) 0 75px;
+}
+.share_btn_start.formMode:hover{
+    background-position: 0 0;
+}
+.share_btn_start.formMode:active{
+    margin-bottom: -1px;
+}
+.share_form_container{
+    position: absolute;
+    top:160px;
+    width:460px;
+    height:150px;
+    margin-left: -220px;
+    overflow: hidden;
+
+    color:#ccc;
+
+    display:none;
+}
+.share_form{
+    position: absolute;
+    top:30px;
+    width:100%;
+}
+#share_block label{
+    font-size: 16px;
+    letter-spacing: 4px;
+}
+#share_block input{
+    height: 24px;
+}
+label[for="share_field_name"]{
+    width: 50px;
+    float: left;
+}
+#share_field_name{
+    width: 160px;
+    float: left;
+
+}
+label[for="share_field_phone"]{
+    width: 50px;
+    float: left;
+    margin-left: 10px;
+}
+#share_field_phone{
+    width:180px;
+    float: left;
+
+}
+label[for="share_field_address"]{
+    margin-top: 14px;
+    width: 50px;
+    float: left;
+}
+#share_field_county{
+    margin-top: 14px;
+    width:80px;
+    float: left;
+    height:25px;
+}
+#share_field_zone{
+    margin-top: 14px;
+    width:80px;
+    float: left;
+    margin-left: 10px;
+    height:25px;
+}
+#share_field_address{
+    margin-top: 14px;
+    width:222px;
+    float: left;
+    margin-left: 10px;
+}
+#share_rule_check_container{
+    float: left;
+    margin-left: 22px;
+    margin-top: 19px;
+    position: relative;
+}
+.share_rulecheck_text{
+    float: left;
+    margin-top: 14px;
+    margin-left: 11px;
+    font-size: 16px;
+}
+.share_rulecheck_text span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#share_rule_block{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.9);
+
+    z-index: 8000;
+
+    display:none;
+}
+.share_rule{
+    position: fixed;
+    top:50%;
+    left:50%;
+    width:800px;
+    height:auto;
+
+    margin-left: -420px;
+    margin-top: -300px;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    font-family: '微軟正黑體', "Heiti TC", serif;
+    font-size: 14px;
+    color: #ccc;
+    padding: 20px;
+}
+.share_btn_close{
+    position: absolute;
+    z-index: 1;
+    right:10px;
+    top:10px;
+    background: url(../images/btn_close.png) 0 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.share_btn_close:hover{
+    background-position: 0 -50px;
+}
+.share_btn_close:active{
+    top:11px;
+}
+.share_line_number{
+    list-style-type: decimal;
+
+    line-height: 24px;
+}
+.share_line_disc{
+    list-style-type: disc;
+    line-height: 24px;
 }
 
 /** misc **/
