@@ -45,7 +45,7 @@
 
         function handleOrientation(event)
         {
-            trace(event.gamma);
+            //trace(event.gamma);
 
             if(event.gamma == null)
             {
@@ -100,7 +100,7 @@
 
     };
 
-    _p.onResize = function (width, height)
+    _p.onResize = function (width, height, isChanged, mode)
     {
 
         var sizeObj = MathHelper.getSize_cover(width, height, 2400, 1300);

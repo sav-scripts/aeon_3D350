@@ -19,6 +19,13 @@
         ALWAYS:"always"
     };
 
+    ContentTrigger.heightType =
+    {
+        SCREEN_HEIGHT:"screenHeight",
+        CONTENT_HEIGHT:"contentHeight",
+        CONTENT_AND_SCREEN:"contentAndScreen"
+    };
+
     function ContentTrigger(_cbOnScroll)
     {
         var _p = ContentTrigger.prototype = this;
@@ -39,6 +46,14 @@
 
         _p.refresh = function()
         {
+            var name, obj, dom;
+            for(name in _registedDic)
+            {
+                obj = _registedDic[name];
+                dom = obj.dom;
+                if(obj.height == ContentTrigger.heightType.CONTENT_HEIGHT || obj.height == ContentTrigger.heightType.CONTENT_AND_SCREEN) obj.contentHeight = $(dom).height();
+            }
+
             onScroll(null, true);
         };
 
@@ -80,15 +95,20 @@
 
                 var rawTop = _isiOS? $(dom).position().top: $(dom).offset().top;
 
+                var range = obj.height;
+                if(range == ContentTrigger.heightType.SCREEN_HEIGHT) range = windowHeight;
+                if(range == ContentTrigger.heightType.CONTENT_HEIGHT) range = obj.contentHeight;
+                if(range == ContentTrigger.heightType.CONTENT_AND_SCREEN) range = obj.contentHeight + windowHeight;
+
+                var start = obj.top;
+                if(start == ContentTrigger.heightType.SCREEN_HEIGHT) start = windowHeight;
+
                 if(obj.isAreaMode)
                 {
                     //var top = linePosition
                     var objPosition = rawTop + (linePosition - scrollTop);
 
-
-                    
-
-                    if(objPosition <= obj.top && objPosition >= (obj.top - obj.height))
+                    if(objPosition <= start && objPosition >= (start - range))
                     {
                         obj.condition = "in";
                     }

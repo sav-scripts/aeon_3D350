@@ -15,6 +15,8 @@
 
     var _cbAfterToBlock;
 
+    _p.currentMode = null;
+
     _p.settings =
     {
         mWidth: 720,
@@ -110,10 +112,6 @@
             }
         });
 
-        var firstHash = Utility.getHash();
-        if(!_hashDic[firstHash]) firstHash = _defaultHash;
-        ga("send", "pageview", firstHash);
-        _p.scrollToBlock(firstHash, 0);
 
         _contentTrigger = new ContentTrigger();
 
@@ -134,6 +132,18 @@
 
         if(Utility.urlParams.skip_intro != "1") ATWPop.playVideo();
 
+
+        var firstHash = Utility.getHash();
+        if(!_hashDic[firstHash]) firstHash = _defaultHash;
+        ga("send", "pageview", firstHash);
+        _p.scrollToBlock(firstHash, 0);
+
+        if(BrowserDetect.isMobile)
+        {
+            $("html, body, #wrapper").css({
+                height: $(window).height()
+            });
+        }
     }
 
     function setupParticle()
@@ -253,17 +263,38 @@
 
                 //console.log("changed");
             }
-            /*
-            var oldBool = _isScrollButtonHidding;
-            _isScrollButtonHidding = condition == "below";
-
-            if(oldBool != _isScrollButtonHidding)
-            {
-                update();
-            }
-            */
 
         }, {align:ContentTrigger.align.TOP, condition:"not triggered", repeat:-1});
+
+
+
+        _contentTrigger.add("atw", _hashDic["/ATW"].block[0], function(condition)
+        {
+            //console.log("changed: " + condition);
+
+            if(condition == "in")
+            {
+                _contentTrigger.remove("atw");
+
+                ATW.initVideo();
+            }
+
+        }, {align:ContentTrigger.align.TOP, condition:"not triggered", repeat:-1, isAreaMode:true, top:"screenHeight", height:"contentAndScreen"});
+
+
+        _contentTrigger.add("cf", _hashDic["/CF"].block[0], function(condition)
+        {
+            //console.log("changed: " + condition);
+
+            if(condition == "in")
+            {
+                _contentTrigger.remove("cf");
+
+                CF.initVideo();
+            }
+
+        }, {align:ContentTrigger.align.TOP, condition:"not triggered", repeat:-1, isAreaMode:true, top:"screenHeight", height:"contentAndScreen"});
+
 
         /*
         mark = _contentList[_contentList.length-1].block[0];
@@ -309,6 +340,14 @@
 
     _p.scrollToBlock = function(hashName, fixDuration)
     {
+        if(BrowserDetect.isMobile)
+        {
+            $("html, body, #wrapper").css({
+                height: $(window).height()
+            });
+        }
+
+
         if(hashName == "") hashName = _defaultHash;
         var $block = _hashDic[hashName].block;
         var targetTop = $block.position().top;
@@ -376,20 +415,29 @@
         var width = _windowWidth = $(window).width(),
             height = $(window).height();
 
+        var oldMode = Main.currentMode;
+        if(width > _p.settings.cWidth) Main.currentMode = "large";
+        else if(width > _p.settings.mWidth) Main.currentMode = "middle";
+        else Main.currentMode = "small";
+
+        var changed = oldMode != Main.currentMode;
+
         _p.settings.maxSparkCount = width/1900*6;
         _p.settings.maxSparkCount2 = width/1900*50;
 
-        Index.onResize(width, height);
-        Spec.onResize(width, height);
-        Feature.onResize(width, height);
-        MotoColor.onResize(width, height);
-        Watch.onResize(width, height);
-        CF.onResize(width, height);
-        Sign.onResize(width, height);
-        ATW.onResize(width, height);
-        Share.onResize(width, height);
+        Index.onResize(width, height, changed, Main.currentMode);
+        Spec.onResize(width, height, changed, Main.currentMode);
+        Feature.onResize(width, height, changed, Main.currentMode);
+        MotoColor.onResize(width, height, changed, Main.currentMode);
+        Watch.onResize(width, height, changed, Main.currentMode);
+        CF.onResize(width, height, changed, Main.currentMode);
+        Sign.onResize(width, height, changed, Main.currentMode);
+        ATW.onResize(width, height, changed, Main.currentMode);
+        Share.onResize(width, height, changed, Main.currentMode);
 
         ATWPop.onResize();
+
+        RightMenu.onResize(width, height, changed, Main.currentMode);
 
         _contentTrigger.refresh();
     }

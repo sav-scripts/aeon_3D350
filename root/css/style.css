@@ -256,15 +256,154 @@ body > .scroll_btn{
 }
 
 #right_menu > .group > .menu_button:nth-of-type(12){
-    background:url(../images/menu_main.png) 0 -420px no-repeat;
+    background:url(../images/menu_main.png) 0 -462px no-repeat;
 }
 #right_menu > .group > .menu_button:nth-of-type(12):hover{
-    background-position: -115px -420px;
+    background-position: -115px -462px;
 }
 
-#right_menu > .group > .menu_button:active{
-    /*border-top: #555 2px solid;*/
-    /*border-bottom: #111 0 solid;*/
+.mobile_menu_trigger{
+    display: none;
+}
+
+@media (max-width: 1200px)
+{
+    .mobile_menu_trigger{
+        display: block;
+        background: url(../images/mobile_menu_btn.png);
+        background-size: cover;
+        width: 68px;
+        height: 50px;
+        position: fixed;
+        top:4px;
+        right:4px;
+        cursor: pointer;
+        z-index: 99;
+    }
+    #right_menu{
+        background: #000;
+        width: 280px;
+    }
+    #right_menu > .group{
+        position: absolute;
+        right:0;
+        width: 240px;
+        top:50%;
+        margin-top: -456px;
+    }
+
+    #right_menu > .group > .menu_button{
+        position: relative;
+        float: left;
+        width: 240px;
+        height:76px;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        /*
+        background:#333;
+        border-top: #555 1px solid;
+        border-bottom: #111 1px solid;
+        */
+        cursor: pointer;
+    }
+
+
+    #right_menu > .group > .menu_button:nth-of-type(1){
+        background:url(../images/mobile_menu_main.png) 0 0 no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(1):hover{
+        background:url(../images/mobile_menu_main.png) -245px 0 no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(2){
+        background:url(../images/mobile_menu_main.png) 0 -90px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(2):hover{
+        background:url(../images/mobile_menu_main.png) -245px -90px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(3){
+        background:url(../images/mobile_menu_main.png) 0 -180px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(3):hover{
+        background:url(../images/mobile_menu_main.png) -245px -180px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(4){
+        background:url(../images/mobile_menu_main.png) 0 -270px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(4):hover{
+        background:url(../images/mobile_menu_main.png) -245px -270px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(5){
+        background:url(../images/mobile_menu_main.png) 0 -360px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(5):hover{
+        background:url(../images/mobile_menu_main.png) -245px -360px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(6){
+        background:url(../images/mobile_menu_main.png) 0 -450px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(6):hover{
+        background:url(../images/mobile_menu_main.png) -245px -450px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(7){
+        background:url(../images/mobile_menu_main.png) 0 -540px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(7):hover{
+        background:url(../images/mobile_menu_main.png) -245px -540px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(8){
+        background:url(../images/mobile_menu_main.png) 0 -630px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(8):hover{
+        background:url(../images/mobile_menu_main.png) -245px -630px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(9){
+        background:url(../images/mobile_menu_main.png) 0 -720px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(9):hover{
+        background:url(../images/mobile_menu_main.png) -245px -720px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(10){
+        background:url(../images/mobile_menu_main.png) 0 -810px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(10):hover{
+        background:url(../images/mobile_menu_main.png) -245px -810px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(11){
+        background:url(../images/mobile_menu_main.png) 0 -900px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(11):hover{
+        background:url(../images/mobile_menu_main.png) -245px -900px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(12){
+        background:url(../images/mobile_menu_main.png) 0 -990px no-repeat;
+    }
+
+    #right_menu > .group > .menu_button:nth-of-type(12):hover{
+        background:url(../images/mobile_menu_main.png) -245px -990px no-repeat;
+    }
 }
 
 /** index **/
@@ -359,8 +498,8 @@ body > .scroll_btn{
 
 #index_block > .index_share_btn{
     position: absolute;
-    right:130px;
-    bottom: 30px;
+    right:120px;
+    bottom: 20px;
     background: url(../images/index_c4a.png) 0 0 no-repeat;
     width: 231px;
     height: 115px;
@@ -420,6 +559,20 @@ body > .scroll_btn{
     }
 }
 
+@media (max-width: 1200px)
+{
+    #index_block > .index_share_btn {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        background: url(../images/index_c4a.png) 0 0 no-repeat;
+        width: 231px;
+        height: 115px;
+        cursor: pointer;
+    }
+
+}
+
 
 /** brand **/
 #brand_block{
@@ -444,21 +597,23 @@ body > .scroll_btn{
 {
     #brand_block{
         /*height: 1200px;*/
-        height: 0;
-        padding-top:385.1666%;
+        /*height: 0;*/
+        /*padding-top:385.1666%;*/
         min-height: 0;
+        height: auto;
     }
     #brand_block > .brand{
         background: url(../images/brand_1200.jpg) no-repeat;
         width: 100%;
         /*height: 4622px;*/
         background-size: contain;
-        height: 100%;
-        padding-top:385.1666%;
+        height: 0;
+        padding-top:416.66%;
         left:0;
         margin-left: 0;
         top:0;
         margin-top: 0;
+        position: relative;
     }
 
 }
@@ -608,7 +763,7 @@ body > .scroll_btn{
     #feature_block > .feature_block:nth-of-type(3){
         background: url(../images/product03_1200.jpg) center center;
         background-size: contain;
-        padding-top:237.66%;
+        padding-top:182.5%;
     }
     #feature_block > .feature_block:nth-of-type(4){
         background: url(../images/product04_1200.jpg) center center;
@@ -645,7 +800,6 @@ body > .scroll_btn{
         background-size: contain;
         padding-top:164.75%;
     }
-
 
 }
 /*
@@ -933,6 +1087,16 @@ body > .scroll_btn{
 }
 @media(max-width: 1200px)
 {
+    .watch_right_cover{
+        display: none;
+    }
+}
+@media(max-width: 1200px)
+{
+    #watch_block{
+        background: #fff;
+    }
+
     .watch_title{
         display: none;
     }
@@ -968,6 +1132,12 @@ body > .scroll_btn{
     background: #000;
     height: 100%;
     min-height: 650px;
+}
+.info_wrapper{
+    position: absolute;
+    width: 100%;
+    top:50%;
+    margin-top: -350px;
 }
 .info_image_1{
     position: absolute;
@@ -1033,7 +1203,40 @@ body > .scroll_btn{
 .info_3{
     width: 361px;
     margin-left: 3px;
+}
 
+@media(max-width: 1200px)
+{
+    #info_block{
+        height: auto;
+        min-height: 0;
+    }
+    .info_wrapper{
+        position: relative;
+        top:0;
+        margin-top: 0;
+        height: auto;
+    }
+
+    .info_image_1{
+        position: relative;
+        background: url(../images/info_image_1_1200.jpg);
+        background-size: contain;
+        width: 100%;
+        height: 0;
+        padding-top: 241.66%;
+        left:0;
+        top:0;
+        margin-left: 0;
+    }
+    .info_image_2{
+        background: none;
+        display: none;
+
+    }
+    .info_table{
+        display: none;
+    }
 }
 
 
@@ -1232,6 +1435,169 @@ body > .scroll_btn{
     display: none;
 }
 
+@media (max-width: 720px)
+{
+    #sign_block{
+        background: #000;
+        height: 3280px;
+    }
+    .form_container{
+        position: absolute;
+        z-index: 11;
+        top:0;
+        left:0;
+        width: 720px;
+        height: 100%;
+        margin-left: 0;
+        margin-top:0;
+        /*border: 1px #777 solid;*/
+    }
+    .sign_title{
+        display: none;
+        background: none;
+    }
+    .sign_main_text{
+        position: absolute;
+        left:0;
+        background:url(../images/sign_main_text_720.png);
+        width: 720px;
+        height: 3180px;
+        top:0;
+        margin-left: 0;
+    }
+    .sign_shadow{
+        background: none;
+        display: none;
+    }
+    .sign_moto{
+        background: none;
+        display: none;
+    }
+    #sign_block input{
+        height: 42px;
+    }
+    #sign_block input{
+        font-size: 24px;
+    }
+    #sign_field_name{
+        top: 668px;
+        left: 180px;
+        width: 470px;
+        height: 42px;
+    }
+    #sign_field_pid{
+        top: 758px;
+        left: 300px;
+        width: 350px;
+    }
+    #sign_field_phone{
+        top: 942px;
+        left: 260px;
+        width: 390px;
+    }
+
+    #sign_block select{
+        height: 42px;
+        font-size: 20px;
+    }
+
+    #sign_field_year{
+        top: 850px;
+        left: 180px;
+        width: 182px;
+    }
+
+    #sign_field_month{
+        top: 850px;
+        left: 366px;
+        width: 140px;
+    }
+
+    #sign_field_day{
+        top: 850px;
+        left: 510px;
+        width: 140px;
+    }
+    #sign_field_email{
+        top: 1032px;
+        left: 260px;
+        width: 390px;
+    }
+    #sign_field_event{
+        top: 1126px;
+        left: 260px;
+        width: 390px;
+    }
+    #sign_field_time{
+        top: 1216px;
+        left: 260px;
+        width: 390px;
+    }
+    .squaredFour{
+
+        width:30px;
+        margin: 30px auto;
+    }
+
+    .squaredFour label{
+        width:30px;
+        height:30px;
+    }
+
+    .squaredFour label:after{
+        width:12px;
+        height:10px;
+        left:8px;
+        top:6px;
+    }
+    #sign_licence_yes{
+        top:1367px;
+        left:220px;
+    }
+    #sign_licence_no{
+        top:1367px;
+        left:424px;
+    }
+    #sign_friend_yes{
+        top:1790px;
+        left:220px;
+
+    }
+    #sign_friend_no{
+        top:1790px;
+        left:424px;
+    }
+
+    .sign_more_text{
+        background: url(../images/sign_more_text_720.png);
+        width: 425px;
+        height: 38px;
+        top:1890px;
+        left:50px;
+    }
+    #sign_field_type{
+
+        top:1890px;
+        width:150px;
+        left:520px;
+    }
+
+    .sign_btn_send{
+        bottom:50px;
+        background: url(../images/btn_send_large.png);
+        width: 347px;
+        height: 103px;
+        margin-left: -173px;
+    }
+    .sign_btn_send:hover{
+        background-position: 0 0;
+    }
+    .sign_btn_send:active{
+        bottom:50px;
+    }
+}
+
+
 /** share **/
 #share_block{
     /*background:#333;*/
@@ -1417,6 +1783,13 @@ label[for="share_field_address"]{
     color: #ccc;
     padding: 20px;
 }
+.share_rule_wrapper{
+    position: relative;
+    top:0;
+    left:0;
+    width: 100%;
+    height: auto;
+}
 .share_btn_close{
     position: absolute;
     z-index: 1;
@@ -1435,13 +1808,141 @@ label[for="share_field_address"]{
 }
 .share_line_number{
     list-style-type: decimal;
-
     line-height: 24px;
 }
 .share_line_disc{
     list-style-type: disc;
     line-height: 24px;
 }
+
+
+@media(max-width: 720px)
+{
+    #share_block{
+        /*height: 100%;*/
+        /*background: url(../images/share_bg.jpg) 100% center;*/
+        /*background-size: cover;*/
+        /*overflow: hidden;*/
+
+        /*font-family: '微軟正黑體', "Heiti TC", serif;*/
+        /*font-size: 14px;*/
+        /*color: #ffffff;*/
+        background: #000;
+
+    }
+    #share_block > .bg_left{
+        display: none;
+        background: none;
+    }
+    #share_block > .bg_right{
+        display: none;
+        background: none;
+    }
+
+    .share_title{
+        /*
+        position: absolute;
+        top:0;
+        background:url(../images/share_tit.png);
+        width: 533px;
+        height: 151px;
+        left:-266px;
+        */
+        background:url(../images/share_tit_1200.png) no-repeat;
+        background-size: contain;
+
+        width: 720px;
+        height: 441px;
+        left:0;
+        top:0;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .share_group{
+
+        position: absolute;
+        top:50%;
+        left:0;
+        height:500px;
+        margin-top: -400px;
+        width: 720px;
+    }
+    .share_form_container{
+        width:720px;
+        left:0;
+        margin-left: 0;
+        top:380px;
+    }
+
+    label[for="share_field_name"]{
+
+        width: 90px;
+        margin-left: 34px;
+    }
+    #share_field_name{
+        width: 560px;
+        left:100px;
+
+    }
+    label[for="share_field_phone"]{
+        width: 90px;
+        margin-left: 34px;
+        margin-top: 10px;
+    }
+    #share_field_phone{
+        width:560px;
+        margin-top: 10px;
+
+    }
+    label[for="share_field_address"]{
+        width: 90px;
+        margin-left: 34px;
+        margin-top: 10px;
+    }
+    #share_field_county{
+        margin-top: 10px;
+        width:200px;
+        height:30px;
+    }
+    #share_field_zone{
+        margin-top: 10px;
+        width:200px;
+        margin-left: 10px;
+        height:30px;
+    }
+    #share_field_address{
+        margin-top: 10px;
+        width:560px;
+        margin-left: 124px;
+    }
+    #share_block label{
+        font-size: 20px;
+    }
+    #share_block input{
+        height: 30px;
+    }
+
+
+
+    #share_rule_check_container{
+        margin-left: 124px;
+        margin-top: 19px;
+    }
+    .share_rulecheck_text{
+        margin-top: 14px;
+        margin-left: 11px;
+        font-size: 20px;
+    }
+    .share_rulecheck_text span{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+}
+
+
+
+
 
 /** misc **/
 .particle_0{

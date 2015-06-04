@@ -18,6 +18,11 @@
 
 
 
+
+    };
+
+    _p.initVideo = function()
+    {
         var dom = document.createElement("div");
         dom.id = "atw_video_small";
 
@@ -47,6 +52,7 @@
 
             _p.onResize();
         }
+
     };
 
     _p.onResize = function (width, height)
@@ -125,8 +131,6 @@
 
         function onPlayerReady(event)
         {
-            console.log("player ready");
-
             if(_isOn == false) return;
 
             $("#atw_video")[0].className = "video_player";

@@ -17,7 +17,6 @@
     {
         $doms.container = $("#sign_block");
         $doms.formContainer = $doms.container.find("> .form_container");
-        Helper.getInitValue($doms.formContainer[0]);
 
         $doms.year = $doms.container.find("#sign_field_year");
         $doms.month = $doms.container.find("#sign_field_month");
@@ -133,6 +132,10 @@
                         alert("您的報名資料已送出成功, 感謝您的參予.");
                         clearForm();
                     }
+                    else if(response.res == "full")
+                    {
+                        alert("很抱歉，你選擇的場次已經額滿，煩請請重新選擇其他 場次/時段，感謝你的配合！");
+                    }
                     else
                     {
                         alert(response.res);
@@ -197,12 +200,16 @@
             return;
         }
 
+        console.log(formObj.q_event);
+
         formObj.q_time = $doms.time.val();
         if(formObj.q_time == "--")
         {
             alert("請選擇時段");
             return;
         }
+
+        console.log(formObj.q_time);
 
         if(_checkState.licence == 0)
         {
@@ -269,16 +276,27 @@
         var $dom = $doms.formContainer;
         var dom = $dom[0];
 
-        if(height < dom.init.h)
+        if(Main.currentMode == "small")
         {
-            $doms.container.height(dom.init.h);
-            $dom.css("top", 0).css("margin-top", 0);
+            $doms.container.css("height", "");
+            $dom.css("top", "").css("margin-top", "");
         }
         else
         {
-            $doms.container.height(height);
-            $dom.css("top", "50%").css("margin-top", dom.init.mt);
+            if(!dom.init) Helper.getInitValue(dom);
+
+            if(height < dom.init.h)
+            {
+                $doms.container.height(dom.init.h);
+                $dom.css("top", 0).css("margin-top", 0);
+            }
+            else
+            {
+                $doms.container.height(height);
+                $dom.css("top", "50%").css("margin-top", dom.init.mt);
+            }
         }
+
     };
 
 }());

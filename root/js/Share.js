@@ -40,6 +40,7 @@
 
         $doms.rule = $("#share_rule_block");
         $doms.ruleContent = $(".share_rule");
+        $doms.ruleWrapper = $(".share_rule_wrapper");
         $doms.ruleClose = $(".share_btn_close");
 
         $doms.ruleClose.bind("click", function()
@@ -56,6 +57,7 @@
         {
             if(!_isFormOpen)
             {
+                //_p.openForm();
                 _p.tryShare(function()
                 {
                     _p.openForm();
@@ -70,6 +72,8 @@
                 });
             }
         });
+
+        _isInit = true;
     };
 
     _p.switchRule = function(showIt)
@@ -247,8 +251,10 @@
 
         $doms.formContainer.css("height", 0).css("display", "block");
 
+        var offset = Main.currentMode == "small"? 0: -50;
+
         var tl = new TimelineMax();
-        tl.to($doms.group,.6, {height:$doms.group[0].init.h + _formHeight, marginTop:$doms.group[0].init.mt-50}, 0);
+        tl.to($doms.group,.6, {height:$doms.group[0].init.h + _formHeight, marginTop:$doms.group[0].init.mt+offset}, 0);
         tl.to($doms.formContainer,.6, {height:_formHeight}, 0);
         tl.add(function()
         {
@@ -279,7 +285,39 @@
     {
         if(!_isInit) return;
 
-        $doms.ruleContent.css("margin-top", -$doms.ruleContent.height() *.5 + "px");
+        _formHeight = Main.currentMode == "small"? 300: 150;
+
+
+        var bleed = 40;
+        var padding = 20;
+        var rawWidth = 800;
+
+        var minWidth = bleed + padding*2 + rawWidth;
+
+        if(width < minWidth)
+        {
+            var tw = width - 40 - padding*2;
+            $doms.ruleContent.css("width", tw).css("margin-left", -tw *.5 - 20);
+
+        }
+
+        var minHeight = bleed + padding*2 + $doms.ruleWrapper.height();
+
+        //console.log($doms.ruleWrapper.height());
+        if(height < minHeight)
+        {
+            var th = height - 40 - padding*2;
+            $doms.ruleContent.css("height", th).css("overflow-y", "auto");
+        }
+        else
+        {
+            $doms.ruleContent.css("height", "").css("overflow-y", "");
+        }
+
+        $doms.ruleContent.css("margin-top", -$doms.ruleContent.height() *.5 - 20 + "px");
+
+        //_p.closeForm();
+
 
     };
 

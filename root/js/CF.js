@@ -17,7 +17,10 @@
         $doms.container.append($doms.base);
 
 
+    };
 
+    _p.initVideo = function()
+    {
         var dom = document.createElement("div");
         dom.id = "cf_video";
 
@@ -39,6 +42,9 @@
             }
         });
 
+
+        _p.onResize($(window).width(), $(window).height());
+
         $("#cf_video")[0].className = "video_player";
 
         function onPlayerReady()
@@ -47,12 +53,13 @@
         }
     };
 
-    _p.onResize = function (width, height)
+    _p.onResize = function (width, height, isChanged, mode)
     {
         var bleedW = 100;
         var bleedH = 150;
 
-        var menuWidth = $("#right_menu").width();
+        var menuWidth = Main.currentMode == "large"? $("#right_menu").width(): 0;
+
 
         //var sizeObj = MathHelper.getSize_contain(width-bleed, height-bleed, 1280, 720);
         var sizeObj = MathHelper.getSize_contain(width-bleedW - menuWidth, height-bleedH, 960, 720);
