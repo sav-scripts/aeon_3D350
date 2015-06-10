@@ -22,7 +22,10 @@
         mWidth: 720,
         cWidth: 1200,
         maxSparkCount: 6,
-        maxSparkCount2: 50
+        maxSparkCount2: 50,
+        windowWidth:0,
+        windowHeight:0,
+        isVerticalMode:false
     };
 
     _p.videoID =
@@ -78,7 +81,7 @@
         MotoColor.init();
         Watch.init();
         Sign.init();
-        CF.init();
+        //CF.init();
         ATW.init();
         Share.init();
 
@@ -282,6 +285,7 @@
         }, {align:ContentTrigger.align.TOP, condition:"not triggered", repeat:-1, isAreaMode:true, top:"screenHeight", height:"contentAndScreen"});
 
 
+        /*
         _contentTrigger.add("cf", _hashDic["/CF"].block[0], function(condition)
         {
             //console.log("changed: " + condition);
@@ -294,6 +298,7 @@
             }
 
         }, {align:ContentTrigger.align.TOP, condition:"not triggered", repeat:-1, isAreaMode:true, top:"screenHeight", height:"contentAndScreen"});
+        */
 
 
         /*
@@ -412,8 +417,13 @@
 
     function onResize()
     {
-        var width = _windowWidth = $(window).width(),
-            height = $(window).height();
+        var width = _windowWidth = _p.settings.windowWidth = $(window).width(),
+            height = _p.settings.windowHeight = $(window).height();
+
+        _p.settings.isVerticalMode = height > width;
+
+        //trace($("#myViewport").attr("content"));
+        //trace(width);
 
         var oldMode = Main.currentMode;
         if(width > _p.settings.cWidth) Main.currentMode = "large";
@@ -430,7 +440,7 @@
         Feature.onResize(width, height, changed, Main.currentMode);
         MotoColor.onResize(width, height, changed, Main.currentMode);
         Watch.onResize(width, height, changed, Main.currentMode);
-        CF.onResize(width, height, changed, Main.currentMode);
+        //CF.onResize(width, height, changed, Main.currentMode);
         Sign.onResize(width, height, changed, Main.currentMode);
         ATW.onResize(width, height, changed, Main.currentMode);
         Share.onResize(width, height, changed, Main.currentMode);

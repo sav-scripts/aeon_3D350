@@ -26,10 +26,10 @@
         $doms.btnColor = $($buttons[5]);
         $doms.btnWatch = $($buttons[6]);
         $doms.btnInfo = $($buttons[7]);
-        $doms.btnCF = $($buttons[8]);
+        //$doms.btnCF = $($buttons[8]);
         $doms.btnDownload = $($buttons[9]);
-        $doms.btnShare = $($buttons[10]);
-        $doms.btnSign = $($buttons[11]);
+        $doms.btnShare = $($buttons[11]);
+        $doms.btnSign = $($buttons[10]);
 
 
         TweenMax.set($doms.container,{opacity:.5});
@@ -94,10 +94,10 @@
             //ATWPop.playVideo();
         });
 
-        $doms.btnCF.bind("click", function()
-        {
-            Main.toBlock("/CF");
-        });
+        //$doms.btnCF.bind("click", function()
+        //{
+        //    Main.toBlock("/CF");
+        //});
 
         $doms.btnSign.bind("click", function()
         {

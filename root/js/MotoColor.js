@@ -54,29 +54,45 @@
         function handleOrientation(event)
         {
             //trace(event.gamma);
+            var v;
 
-            if(event.gamma == null)
+            if(Main.settings.isVerticalMode)
+            {
+                v = event.gamma;
+            }
+            else
+            {
+                v =  -event.beta;
+            }
+
+
+
+            if(v == null)
             {
                 bindMouseTrigger();
                 window.removeEventListener("deviceorientation", handleOrientation);
             }
-
-            var oldIsWhite = _isWhite;
-            _isWhite = (event.gamma > 0);
-
-            if(oldIsWhite != _isWhite)
+            else
             {
+                var oldIsWhite = _isWhite;
+                _isWhite = (v > 0);
 
-                var targetX = _isWhite? $(window).width(): 0;
-
-                TweenMax.killTweensOf(_tweenObj);
-                TweenMax.to(_tweenObj,.8, {clientX:targetX, onUpdate:function()
+                if(oldIsWhite != _isWhite)
                 {
-                    update(_tweenObj);
-                }});
+
+                    var targetX = _isWhite? $(window).width(): 0;
+
+                    TweenMax.killTweensOf(_tweenObj);
+                    TweenMax.to(_tweenObj,.8, {clientX:targetX, onUpdate:function()
+                    {
+                        update(_tweenObj);
+                    }});
 
 
+                }
             }
+
+
 
         }
 

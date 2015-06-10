@@ -40,24 +40,40 @@
             bindMouseTrigger();
         }
 
-        var totalArc = 60,
-            halfArc = totalArc*.5;
 
         function handleOrientation(event)
         {
-            //trace(event.gamma);
+            //trace(Main.settings.isVerticalMode);
 
-            if(event.gamma == null)
+            var v, totalArc, halfArc;
+
+            if(Main.settings.isVerticalMode)
+            {
+                v = event.gamma;
+                totalArc = 60;
+            }
+            else
+            {
+                v =  -event.beta;
+                totalArc = 60;
+            }
+            halfArc = totalArc*.5;
+
+
+
+            if(v == null)
             {
                 bindMouseTrigger();
                 window.removeEventListener("deviceorientation", handleOrientation);
             }
+            else
+            {
+                var arc = v;
+                if(arc < -halfArc) arc = -halfArc;
+                if(arc > halfArc) arc = halfArc;
+                updateFrame((totalArc - (arc+halfArc))/totalArc);
+            }
 
-
-            var arc = event.gamma;
-            if(arc < -halfArc) arc = -halfArc;
-            if(arc > halfArc) arc = halfArc;
-            updateFrame((totalArc - (arc+halfArc))/totalArc);
 
         }
 

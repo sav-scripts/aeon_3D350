@@ -110,7 +110,7 @@
             }
             else
             {
-                var url = "/api/send_share.php";
+                var url = "/api/send_share.ashx";
                 var method = "POST";
 
                 //SimplePreloading.setProgress("");

@@ -52,7 +52,22 @@
 
         clearForm();
 
+        disableField($doms.name);
+        disableField($doms.pid);
+        disableField($doms.phone);
+        disableField($doms.email);
+
     };
+
+    function disableField($dom)
+    {
+        $dom.on("focus", function()
+        {
+            $dom.blur();
+            alert("所有場次均額滿, 感謝您的參予.");
+        });
+
+    }
 
     function switchTypeField(isShow)
     {
@@ -108,7 +123,7 @@
             }
             else
             {
-                var url = "/api/send_sign.php";
+                var url = "/api/send_sign.ashx";
                 var method = "POST";
 
                 //SimplePreloading.setProgress("");
@@ -165,10 +180,18 @@
             alert('請輸入您的名稱'); dom.focus(); return;
         }else formObj.name = dom.value;
 
+        /*
         dom = $doms.pid[0];
         if(!Utility.checkPID(dom.value))
         {
             alert('請輸入正確的身分證字號'); dom.focus(); return;
+        }else formObj.sid = dom.value;
+        */
+
+        dom = $doms.pid[0];
+        if(PatternSamples.onlySpace.test(dom.value))
+        {
+            alert('請輸入您的身分證字號'); dom.focus(); return;
         }else formObj.sid = dom.value;
 
         formObj.birth = _dateCombo.getDateString("/");

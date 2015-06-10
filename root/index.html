@@ -34,7 +34,8 @@
                 {
                     /*$("#myViewport").detach();*/
                     scaleRate =  screen.width/targetWidth;
-                    var contentString = 'width='+targetWidth+'px,initial-scale='+scaleRate+', maximum-scale='+scaleRate+', minimum-scale='+scaleRate+', user-scaleable=no';
+//                    var contentString = 'width='+targetWidth+'px,initial-scale='+scaleRate+', maximum-scale='+scaleRate+', minimum-scale='+scaleRate+', user-scaleable=no';
+                    var contentString = 'width='+targetWidth+'px,initial-scale='+scaleRate+', user-scaleable=no'+', maximum-scale='+scaleRate;
                     divString = '<meta id="myViewport" name="viewport" content="'+contentString+'">';
                     document.write(divString);
 
@@ -46,11 +47,11 @@
 
 
 
-        <meta property="og:title" content="AEON 3D-350" />
+        <meta property="og:title" content="Aeon 3D-350 匹配你的閱歷非凡" />
         <meta property="og:type" content="activity" />
-        <meta property="og:caption" content="Aeon 3D-350 匹配你的閱歷非凡" />
+        <meta property="og:caption" content="Aeon 3D-350" />
         <meta property="og:description" content="Aeon 3D-350新上市！欲搶先試乘體驗3D-350騎乘感受，速上新車官網登錄！" />
-        <meta property="og:image" content="https://aeon3d350.sp88.tw/misc/fb_share.jpg" />
+        <meta property="og:image" content="http://3d350.aeonmotor.com.tw/misc/fb_share.jpg" />
 
         <link rel="stylesheet" type="text/css" href="css/misc.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -77,7 +78,7 @@
         <script src="js/lib/MathHelper.1.0.0.js"></script>
         <script src="js/Sign.js"></script>
         <script src="js/ATW.js"></script>
-        <script src="js/CF.js"></script>
+        <!--<script src="js/CF.js"></script>-->
         <script src="js/MiscContent.js"></script>
         <script src="js/Watch.js"></script>
         <script src="js/MotoColor.js"></script>
@@ -133,7 +134,7 @@
                 <div class="menu_button"></div>
                 <div class="menu_button"></div>
                 <div class="menu_button"></div>
-                <div class="menu_button"></div>
+                <div class="menu_button" style="display: none;"></div>
                 <div class="menu_button"></div>
                 <div class="menu_button"></div>
                 <div class="menu_button"></div>
@@ -390,8 +391,96 @@
         </div>
 
         <!-- CF欣賞 -->
+        <!--
         <div id="cf_block" class="scroll_block" hash="/CF">
 
+        </div>
+        -->
+
+
+
+        <!-- 報名 -->
+        <div id="sign_block" class="scroll_block" hash="/Sign">
+            <div class="form_container">
+
+                <div class="sign_title"></div>
+                <div class="sign_main_text"></div>
+                <div class="sign_btn_send" style="display: none;"></div>
+
+                <div class="sign_event_end"></div>
+
+
+                <input type="text" name="textfield" id="sign_field_name" class="input_style"  title=""/>
+                <input type="text" name="textfield" id="sign_field_pid" class="input_style"  title=""/>
+
+                <input type="text" name="textfield" id="sign_field_phone" class="input_style"  title="" maxlength="10"/>
+                <input type="text" name="textfield" id="sign_field_email" class="input_style"  title=""/>
+
+                <select class="form_input_select" name="year" id="sign_field_year" title="" disabled>
+                    <option>年</option>
+                </select>
+                <select class="form_input_select" name="month" id="sign_field_month" title="" disabled>
+                    <option>月</option>
+                </select>
+                <select class="form_input_select" name="day" id="sign_field_day" title="" disabled>
+                    <option>日</option>
+                </select>
+
+                <select class="form_input_select" name="day" id="sign_field_event" title="" disabled>
+                    <option>所有場次均已額滿</option>
+                    <!--<option value="06/14">6月14日 新北市 大明汽車重機駕訓</option>-->
+                    <!--<option value="06/19">6月19日 台北市 大台北駕訓班</option>-->
+                    <!--<option value="06/21">6月21日 ---------------</option>-->
+                    <!--<option value="06/28">6月28日 新竹市 東亞駕訓班</option>-->
+                    <!--<option value="07/05">7月05日 台中市 高速駕訓班</option>-->
+                    <!--<option value="07/12">7月12日 台南市 (地點另行通知)</option>-->
+                    <!--<option value="07/26">7月26日 高雄市 大發駕訓班</option>-->
+                </select>
+
+
+                <select class="form_input_select" name="day" id="sign_field_time" title="" disabled>
+                    <option>所有場次均已額滿</option>
+                    <!--<option value="1">PM 13:00</option>-->
+                    <!--<option value="2">PM 14:00</option>-->
+                    <!--<option value="3">PM 15:00</option>-->
+                </select>
+
+                <div id="sign_licence_yes" class="squaredFour">
+                    <input type="checkbox" value="None" id="licence_yes" name="check" disabled />
+                    <label for="licence_yes"></label>
+                </div>
+
+                <div id="sign_licence_no" class="squaredFour">
+                    <input type="checkbox" value="None" id="licence_no" name="check" disabled />
+                    <label for="licence_no"></label>
+                </div>
+
+                <div id="sign_friend_yes" class="squaredFour">
+                    <input type="checkbox" value="None" id="friend_yes" name="check" disabled />
+                    <label for="friend_yes"></label>
+                </div>
+
+                <div id="sign_friend_no" class="squaredFour">
+                    <input type="checkbox" value="None" id="friend_no" name="check" disabled/>
+                    <label for="friend_no"></label>
+                </div>
+
+                <div class="sign_more_text"></div>
+                <select class="form_input_select" name="day" id="sign_field_type" title="">
+                    <option>--</option>
+                    <option>Elite300i</option>
+                    <option>Elite250</option>
+                    <option>OZ150</option>
+                    <option>OZ125</option>
+                    <option>MY</option>
+                    <option>ES150</option>
+                    <option>Coin125</option>
+                </select>
+
+
+            </div>
+            <div class="sign_shadow"></div>
+            <div class="sign_moto"></div>
         </div>
 
 
@@ -457,7 +546,7 @@
 
                         </ul>
 
-                        <li>台端填寫個人資料後，以任何方式遞送至本公司收執時，均視為台端已同意其所填寫之個人資料，供本公司於辦理妙而舒活動之特定目的必要範圍內處理及利用；此外，台端可自行決定是否填寫相關之個人資料欄位，若台端選擇不願填寫，將無法參加本次活動所提供之相關服務。</li>
+                        <li>台端填寫個人資料後，以任何方式遞送至本公司收執時，均視為台端已同意其所填寫之個人資料，供本公司於辦理宏佳騰活動之特定目的必要範圍內處理及利用；此外，台端可自行決定是否填寫相關之個人資料欄位，若台端選擇不願填寫，將無法參加本次活動所提供之相關服務。</li>
                         <li>個人資料安全措施：本公司將依據相關法令之規定建構完善措施，保障台端個人資料之安全。</li>
                     </ul>
                 </div>
@@ -468,87 +557,6 @@
 
 
 
-
-        <!-- 報名 -->
-        <div id="sign_block" class="scroll_block" hash="/Sign">
-            <div class="form_container">
-
-                <div class="sign_title"></div>
-                <div class="sign_main_text"></div>
-                <div class="sign_btn_send"></div>
-
-                <input type="text" name="textfield" id="sign_field_name" class="input_style"  title=""/>
-                <input type="text" name="textfield" id="sign_field_pid" class="input_style"  title=""/>
-
-                <input type="text" name="textfield" id="sign_field_phone" class="input_style"  title="" maxlength="10"/>
-                <input type="text" name="textfield" id="sign_field_email" class="input_style"  title=""/>
-
-                <select class="form_input_select" name="year" id="sign_field_year" title="">
-                    <option>年</option>
-                </select>
-                <select class="form_input_select" name="month" id="sign_field_month" title="">
-                    <option>月</option>
-                </select>
-                <select class="form_input_select" name="day" id="sign_field_day" title="">
-                    <option>日</option>
-                </select>
-
-                <select class="form_input_select" name="day" id="sign_field_event" title="">
-                    <option>--</option>
-                    <option value="06/14">6月14日 新北市</option>
-                    <option value="06/19">6月19日 台北市</option>
-                    <!--<option value="06/21">6月21日 ---------------</option>-->
-                    <option value="06/28">6月28日 新竹市</option>
-                    <option value="07/05">7月05日 台中市</option>
-                    <option value="07/12">7月12日 台南市</option>
-                    <option value="07/19">7月19日 高雄市</option>
-                </select>
-
-
-                <select class="form_input_select" name="day" id="sign_field_time" title="">
-                    <option>--</option>
-                    <option value="1">PM 13:00</option>
-                    <option value="2">PM 14:00</option>
-                    <option value="3">PM 15:00</option>
-                </select>
-
-                <div id="sign_licence_yes" class="squaredFour">
-                    <input type="checkbox" value="None" id="licence_yes" name="check" />
-                    <label for="licence_yes"></label>
-                </div>
-
-                <div id="sign_licence_no" class="squaredFour">
-                    <input type="checkbox" value="None" id="licence_no" name="check" />
-                    <label for="licence_no"></label>
-                </div>
-
-                <div id="sign_friend_yes" class="squaredFour">
-                    <input type="checkbox" value="None" id="friend_yes" name="check" />
-                    <label for="friend_yes"></label>
-                </div>
-
-                <div id="sign_friend_no" class="squaredFour">
-                    <input type="checkbox" value="None" id="friend_no" name="check" />
-                    <label for="friend_no"></label>
-                </div>
-
-                <div class="sign_more_text"></div>
-                <select class="form_input_select" name="day" id="sign_field_type" title="">
-                    <option>--</option>
-                    <option>Elite300i</option>
-                    <option>Elite250</option>
-                    <option>OZ150</option>
-                    <option>OZ125</option>
-                    <option>MY</option>
-                    <option>ES150</option>
-                    <option>Coin125</option>
-                </select>
-
-
-            </div>
-            <div class="sign_shadow"></div>
-            <div class="sign_moto"></div>
-        </div>
 
         <div id="fb-root"></div>
 
