@@ -1287,13 +1287,14 @@ body > .scroll_btn{
 #info_block{
     background: #000;
     height: 100%;
-    min-height: 650px;
+    min-height: 3950px;
 }
 .info_wrapper{
     position: absolute;
     width: 100%;
-    top:50%;
-    margin-top: -350px;
+    /*top:50%;*/
+    /*margin-top: -350px;*/
+    top:0;
 }
 .info_image_1{
     position: absolute;
@@ -1361,11 +1362,11 @@ body > .scroll_btn{
     margin-left: 3px;
 }
 
-@media(max-width: 1200px)
+@media(max-width: 720px)
 {
     #info_block{
-        height: auto;
-        min-height: 0;
+        height: 100%;
+        min-height: 9400px;
     }
     .info_wrapper{
         position: relative;
@@ -1376,11 +1377,14 @@ body > .scroll_btn{
 
     .info_image_1{
         position: relative;
-        background: url(../images/info_image_1_1200.jpg);
+        /*background: url(../images/info_image_1_1200.jpg);*/
+        /*background-size: contain;*/
+        background: url(../images/info_image_1_720.jpg);
         background-size: contain;
         width: 100%;
         height: 0;
-        padding-top: 241.66%;
+        /*padding-top: 241.66%;*/
+        padding-top: 122.36%;
         left:0;
         top:0;
         margin-left: 0;
@@ -1391,18 +1395,60 @@ body > .scroll_btn{
 
     }
     .info_table{
-        display: none;
+        /*display: none;*/
+        left:0;
+        width: 720px;
+        margin-left: 0;
+        top:900px;
+    }
+
+
+    .info_city_block, .info_1, .info_2, .info_3{
+        height:48px;
+
+        font-family: '微軟正黑體', "Heiti TC", serif;
+        font-size: 20px;
+        /*font-weight: bold;*/
+        letter-spacing: 2px;
+        line-height: 46px;
+        color:#eee;
+
+    }
+
+    .info_1, .info_2, .info_3{
+        text-indent: 60px;
+
+    }
+
+    .info_city_block{
+        margin-top: 10px;
+    }
+    .info_1{
+        margin-top: 10px;
+        margin-left: 8px;
+        width: 350px;
+    }
+    .info_2{
+        margin-top: 10px;
+        margin-left: 4px;
+        width: 350px;
+
+    }
+    .info_3{
+        margin-left: 8px;
+        width: 704px;
+
     }
 }
 
-@media(max-width: 720px)
-{
+/*@media(max-width: 720px)*/
+/*{*/
 
-    .info_image_1{
-        background: url(../images/info_image_1_720.jpg);
-        background-size: contain;
-    }
-}
+    /*.info_image_1{*/
+        /*background: url(../images/info_image_1_720.jpg);*/
+        /*background-size: contain;*/
+    /*}*/
+/*}*/
 
 
 /** CF **/
